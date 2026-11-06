@@ -139,8 +139,8 @@ function bfBuildStep(step) {
       '<div class="bf-msg">С какой проблемой вы пришли? Выберите задачу, которая стоит перед бизнесом.</div>' +
       '<div class="bf-options">' +
         '<button class="bf-btn" onclick="selectTask(\'astral\')">Внедрить AI во внутренние процессы</button>' +
-        '<button class="bf-btn" onclick="selectTask(\'designmatrix\')">Продукт не растёт / неясна монетизация</button>' +
-        '<button class="bf-btn" onclick="selectTask(\'storyaxis\')">Хаос в процессах и требованиях</button>' +
+        '<button class="bf-btn" onclick="selectTask(\'storyaxis\')">Продукт не растёт / неясна монетизация</button>' +
+        '<button class="bf-btn" onclick="selectTask(\'designmatrix\')">Хаос в процессах и требованиях</button>' +
         '<button class="bf-btn" onclick="selectTask(\'neirosborka\')">Нужен Product Owner, который видит продукт целиком</button>' +
       '</div>' +
     '</div>';
