@@ -42,6 +42,8 @@ body {
   line-height: 1.6;
 }
 
+html { scroll-behavior: smooth; }
+
 img { max-width: 100%; height: auto; }
 
 /* --- Заголовки (mobile-first) --- */
@@ -230,6 +232,61 @@ main > .section:first-child { padding-bottom: 16px; }
 
 .site-nav a:hover { color: var(--accent); }
 
+/* Фаза 16: выпадающее меню «Кейсы» */
+.site-nav { align-items: center; }
+
+.dropdown { position: relative; }
+
+.dropdown-toggle {
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: inherit;
+  color: var(--text-muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.dropdown-toggle:hover,
+.dropdown-toggle[aria-expanded="true"] { color: var(--accent); }
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  z-index: 110;
+  min-width: 200px;
+  padding: 8px 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown-menu.show { display: block; }
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 15px;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background: var(--elevated);
+  color: var(--accent);
+}
+
+@media (max-width: 767px) {
+  .site-nav { gap: 8px 20px; }
+}
+
 @media (min-width: 768px) {
   .site-header { padding: 18px 40px; }
 }
@@ -313,6 +370,38 @@ main > .section:first-child { padding-bottom: 16px; }
 }
 
 .hero-lead { max-width: 680px; }
+
+/* Фаза 16: имя, должность и слоган */
+.hero-text h1 {
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 1.05;
+}
+
+.hero-subtitle {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  line-height: 1.2;
+  color: var(--accent);
+  margin: 8px 0 24px;
+}
+
+.hero-slogan {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  line-height: 1.3;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+
+/* Фаза 16: акцент — тонкое подчёркивание без курсива */
+.text-accent {
+  color: var(--accent);
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(168, 156, 200, 0.5);
+}
 
 .hero-stats {
   display: grid;

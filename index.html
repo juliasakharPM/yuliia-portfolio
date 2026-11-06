@@ -19,12 +19,18 @@
 <body>
   <header class="site-header">
     <a class="logo" href="index.html">Юлия Сахарова · PM</a>
-    <nav class="site-nav">
-      <a href="index.html">Главная</a>
-      <a href="case-astral.html">Астрал</a>
-      <a href="case-neirosborka.html">Нейросборка</a>
-      <a href="case-storyaxis.html">StoryAxis</a>
-      <a href="case-designmatrix.html">DesignMatrix</a>
+        <nav class="site-nav">
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">Кейсы ▾</button>
+        <div class="dropdown-menu">
+          <a href="case-astral.html">Астрал</a>
+          <a href="case-neirosborka.html">Нейросборка</a>
+          <a href="case-storyaxis.html">StoryAxis</a>
+          <a href="case-designmatrix.html">DesignMatrix</a>
+        </div>
+      </div>
+      <a class="nav-link" href="resume.pdf" target="_blank" rel="noopener">Резюме</a>
+      <a class="nav-link" href="index.html#contacts">Контакты</a>
     </nav>
   </header>
 
@@ -33,10 +39,10 @@
     <section class="section hero fade-in">
       <div class="container hero-grid">
         <div class="hero-text">
-          <h1 style="font-size: clamp(48px, 7vw, 88px); line-height: 1.05;">Юлия Сахарова</h1>
-          <p style="font-family: var(--font-heading); font-size: 1.8rem; color: var(--accent); margin-top: 8px; margin-bottom: 24px;">Product Manager | Product Owner</p>
-          <p style="font-family: var(--font-heading); font-size: 1.6rem; line-height: 1.3; color: var(--text); margin-bottom: 16px;">Превращаю хаос <em>в IT-продукты</em></p>
-          <p class="text-muted hero-lead">Почти 7 лет в IT. Путь начался с техподдержки «Астрал», где я слушала боли пользователей. Поняла, что <em>знаю, что чинить</em>, лучше тех, кто пишет ТЗ. Работаю на стыке AI, бизнеса и разработки. Считаю unit-экономику, пишу ТЗ, которые разработчики понимают с первого раза, выстраиваю процессы так, чтобы команда двигалась в одну сторону. Последний проект — AI-решение для техподдержки. Бюджет 60 000 ₽, окупаемость 22 дня, ROI первого года 1962%.</p>
+          <h1>Юлия Сахарова</h1>
+          <p class="hero-subtitle">Product Manager | Product Owner</p>
+          <p class="hero-slogan">Превращаю хаос <span class="text-accent">в IT-продукты</span></p>
+          <p class="text-muted hero-lead">Почти 7 лет в IT. Путь начался с техподдержки «Астрал», где я поняла: <span class="text-accent">знаю, что чинить</span>, лучше тех, кто пишет ТЗ. Сейчас работаю на стыке AI, бизнеса и разработки. Считаю unit-экономику, защищаю бюджеты и строю процессы, чтобы команда двигалась в одну сторону. Говорю на одном языке с бизнесом, пользователями и разработчиками.</p>
           <div class="hero-stats">
             <div class="stat">
               <span class="stat-value mono"><span data-counter="1962" data-counter-suffix="%"></span></span>
@@ -128,7 +134,7 @@
         </div>
         <div class="about-text">
           <h2>Обо мне</h2>
-          <p class="text-muted">Мой подход: сначала данные и unit-экономика, потом гипотезы. Вижу продукт целиком — <em>от боли пользователя до P&amp;L</em>. Не подменяю специалистов, а выстраиваю процессы так, чтобы команда выдавала результат.</p>
+          <p class="text-muted">Мой подход: сначала данные и unit-экономика, потом гипотезы. Вижу продукт целиком — <span class="text-accent">от боли пользователя до P&amp;L</span>. Не подменяю специалистов, а выстраиваю процессы так, чтобы команда выдавала результат.</p>
           <div class="about-actions">
             <a class="btn btn--primary" href="https://t.me/JSArchitectRealite">Написать в Telegram</a>
             <a class="btn btn--outline" href="mailto:juliasakhar18@yandex.ru">Написать на Email</a>
@@ -138,7 +144,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" id="contacts">
     <img class="avatar rounded-full" src="img/avatar.png" alt="Юлия Сахарова" width="80" height="80" loading="lazy">
     <h2>Давайте поговорим</h2>
     <p>Если у вас продукт, в котором нужен порядок, или задача, которую нужно превратить в решение — напишите.</p>

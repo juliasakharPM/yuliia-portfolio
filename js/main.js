@@ -96,3 +96,34 @@ document.querySelectorAll('.case-slider-wrapper').forEach((wrapper) => {
     show(index);
   });
 });
+
+// --- Выпадающее меню «Кейсы» (фаза 16) ---
+// Открытие по клику; закрытие по клику вне меню и по Escape.
+document.querySelectorAll('.dropdown').forEach((dropdown) => {
+  const toggle = dropdown.querySelector('.dropdown-toggle');
+  const menu = dropdown.querySelector('.dropdown-menu');
+  if (!toggle || !menu) return;
+
+  const close = () => {
+    menu.classList.remove('show');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  toggle.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const isOpen = menu.classList.toggle('show');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  menu.addEventListener('click', (event) => {
+    if (event.target.closest('a')) close();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!dropdown.contains(event.target)) close();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') close();
+  });
+});

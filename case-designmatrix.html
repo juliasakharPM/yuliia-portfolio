@@ -20,12 +20,18 @@
 <body>
   <header class="site-header">
     <a class="logo" href="index.html">Юлия Сахарова · PM</a>
-    <nav class="site-nav">
-      <a href="index.html">Главная</a>
-      <a href="case-astral.html">Астрал</a>
-      <a href="case-neirosborka.html">Нейросборка</a>
-      <a href="case-storyaxis.html">StoryAxis</a>
-      <a href="case-designmatrix.html">DesignMatrix</a>
+        <nav class="site-nav">
+      <div class="dropdown">
+        <button class="dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">Кейсы ▾</button>
+        <div class="dropdown-menu">
+          <a href="case-astral.html">Астрал</a>
+          <a href="case-neirosborka.html">Нейросборка</a>
+          <a href="case-storyaxis.html">StoryAxis</a>
+          <a href="case-designmatrix.html">DesignMatrix</a>
+        </div>
+      </div>
+      <a class="nav-link" href="resume.pdf" target="_blank" rel="noopener">Резюме</a>
+      <a class="nav-link" href="index.html#contacts">Контакты</a>
     </nav>
   </header>
 
@@ -228,7 +234,7 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" id="contacts">
     <img class="avatar rounded-full" src="img/avatar.png" alt="Юлия Сахарова" width="80" height="80" loading="lazy">
     <h2>Давайте поговорим</h2>
     <p>Если у вас продукт, в котором нужен порядок, или задача, которую нужно превратить в решение — напишите.</p>
