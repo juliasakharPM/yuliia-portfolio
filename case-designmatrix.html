@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DesignMatrix · 3D-платформа интерьеров с AI (концепт)</title>
+  <meta name="description" content="DesignMatrix · Концепт-проект. Демонстрация продуктового видения. Реализация не проводилась.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="DesignMatrix · 3D-платформа интерьеров с AI (концепт)">
+  <meta property="og:description" content="DesignMatrix · Концепт-проект. Демонстрация продуктового видения. Реализация не проводилась.">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/case.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">Юлия Сахарова · PM</a>
+    <nav class="site-nav">
+      <a href="index.html">Главная</a>
+      <a href="case-astral.html">Астрал</a>
+      <a href="case-neirosborka.html">Нейросборка</a>
+      <a href="case-storyaxis.html">StoryAxis</a>
+      <a href="case-designmatrix.html">DesignMatrix</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Баннер концепт-проекта (обязательный, фаза 10) -->
+    <section class="section fade-in">
+      <div class="container">
+        <p style="opacity: 0.6; font-family: var(--font-mono); color: var(--text-dim); text-align: center; padding: 12px; border: 1px dashed var(--border); border-radius: var(--radius); margin-bottom: 32px; font-size: 0.875rem;">
+          Концепт-проект. Демонстрация продуктового видения. Реализация не проводилась.
+        </p>
+        <p class="metric-big mono">ROI 20–25%</p>
+        <p class="stat-label mono" style="margin-top: 8px;">Окупаемость 18–24 мес</p>
+        <h1>3D-редактор + AI + <em>маркетплейс</em></h1>
+        <p class="text-muted hero-lead">Концепт платформы для проектирования интерьеров. Бюджет 12–50 млн ₽ в зависимости от локации.</p>
+      </div>
+    </section>
+
+    <!-- Слайдер презентации кейса (фаза 12). Логика: js/main.js -->
+    <div class="container">
+      <div class="case-slider-wrapper">
+        <button class="slider-btn prev" aria-label="Предыдущий слайд">&larr;</button>
+        <div class="case-slider" id="slider-designmatrix">
+          <img src="img/designmatrix-01.png" class="slide active" alt="DesignMatrix Slide 1">
+          <img src="img/designmatrix-02.png" class="slide" alt="DesignMatrix Slide 2" loading="lazy">
+          <img src="img/designmatrix-03.png" class="slide" alt="DesignMatrix Slide 3" loading="lazy">
+          <img src="img/designmatrix-04.png" class="slide" alt="DesignMatrix Slide 4" loading="lazy">
+          <img src="img/designmatrix-05.png" class="slide" alt="DesignMatrix Slide 5" loading="lazy">
+          <img src="img/designmatrix-06.png" class="slide" alt="DesignMatrix Slide 6" loading="lazy">
+          <img src="img/designmatrix-07.png" class="slide" alt="DesignMatrix Slide 7" loading="lazy">
+          <img src="img/designmatrix-08.png" class="slide" alt="DesignMatrix Slide 8" loading="lazy">
+          <img src="img/designmatrix-09.png" class="slide" alt="DesignMatrix Slide 9" loading="lazy">
+          <img src="img/designmatrix-10.png" class="slide" alt="DesignMatrix Slide 10" loading="lazy">
+          <img src="img/designmatrix-11.png" class="slide" alt="DesignMatrix Slide 11" loading="lazy">
+          <img src="img/designmatrix-12.png" class="slide" alt="DesignMatrix Slide 12" loading="lazy">
+          <img src="img/designmatrix-13.png" class="slide" alt="DesignMatrix Slide 13" loading="lazy">
+          <img src="img/designmatrix-14.png" class="slide" alt="DesignMatrix Slide 14" loading="lazy">
+          <img src="img/designmatrix-15.png" class="slide" alt="DesignMatrix Slide 15" loading="lazy">
+          <img src="img/designmatrix-16.png" class="slide" alt="DesignMatrix Slide 16" loading="lazy">
+          <img src="img/designmatrix-17.png" class="slide" alt="DesignMatrix Slide 17" loading="lazy">
+          <img src="img/designmatrix-18.png" class="slide" alt="DesignMatrix Slide 18" loading="lazy">
+          <img src="img/designmatrix-19.png" class="slide" alt="DesignMatrix Slide 19" loading="lazy">
+          <img src="img/designmatrix-20.png" class="slide" alt="DesignMatrix Slide 20" loading="lazy">
+        </div>
+        <button class="slider-btn next" aria-label="Следующий слайд">&rarr;</button>
+      </div>
+    </div>
+
+    <!-- Бизнес-логика -->
+    <section class="section fade-in logic">
+      <div class="container">
+        <h2>Бизнес-логика</h2>
+
+        <h3>Контекст</h3>
+        <p class="text-muted">Рынок 3D-проектирования интерьеров фрагментирован. Профессиональные инструменты (3ds Max, SketchUp) дорогие и сложные. Онлайн-решения (Homestyler, Planner 5D) примитивные. Между ними — пустота.</p>
+
+        <h3>Проблема</h3>
+        <ul class="text-muted">
+          <li>Дизайнеры тратят часы на рутину (подбор материалов, визуализация)</li>
+          <li>Частные пользователи не могут визуализировать идеи → не покупают</li>
+          <li>Нет связки «проектирование → покупка» → потеря комиссии</li>
+          <li>Образовательный сегмент (вузы, колледжи) не охвачен</li>
+        </ul>
+
+        <h3>Решение</h3>
+        <p class="text-muted">Спроектировала DesignMatrix — облачную платформу с AI-генерацией, 3D-редактором на WebGL, интегрированным маркетплейсом и открытым API. Провела сравнительный анализ стоимости разработки в 4 локациях, заложила 4 источника дохода.</p>
+
+        <h3>Бизнес-модель</h3>
+        <ol class="text-muted">
+          <li><strong>Подписки:</strong> Базовая (990 ₽/мес) / Про (2 990 ₽/мес) / Корпоративная (от 9 900 ₽/мес)</li>
+          <li><strong>Маркетплейс:</strong> комиссия 10–15% с продаж материалов и мебели</li>
+          <li><strong>Партнёрки:</strong> интеграция с поставщиками</li>
+          <li><strong>Реклама:</strong> таргетированная от компаний-партнёров</li>
+          <li>Дополнительно: образовательный сегмент — лицензии для вузов (150–200K ₽/год), подписки для студентов (5–10K ₽/год)</li>
+        </ol>
+
+        <h3>Unit-экономика</h3>
+        <p class="text-muted">Прогноз.</p>
+        <div class="grid-3">
+          <div class="card">
+            <p class="stat-value mono">12–50 млн ₽</p>
+            <p class="stat-label">Бюджет разработки (зависит от локации)</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">18–24 мес</p>
+            <p class="stat-label">Окупаемость</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">20–25%</p>
+            <p class="stat-label">ROI годовых</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">100–150K ₽</p>
+            <p class="stat-label">Выручка, месяц 1</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">500–750K ₽</p>
+            <p class="stat-label">Выручка, месяц 6</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">1–1.5 млн ₽</p>
+            <p class="stat-label">Выручка, месяц 12</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">10 000+</p>
+            <p class="stat-label">MAU через 12 мес</p>
+          </div>
+        </div>
+
+        <h3>Точки роста</h3>
+        <ol class="text-muted">
+          <li>AI-генерация дизайнов → снижение порога входа</li>
+          <li>Интегрированный маркетплейс → комиссия</li>
+          <li>Открытый API → интеграция с CAD, CRM, образовательными платформами</li>
+          <li>Образовательный сегмент → LTV x3–5 vs B2C</li>
+          <li>AR/VR-визуализация → премиум-функция</li>
+          <li>Экспорт в проф. форматы (FBX, OBJ, STL, DAE, 3DS) → платная функция для профи</li>
+        </ol>
+
+        <h3>Риски и митигация</h3>
+        <div class="risks-table">
+          <table>
+            <thead>
+              <tr><th scope="col">Риск</th><th scope="col">Митигация</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Высокая конкуренция (SketchUp, Homestyler)</td><td>Фокус на AI + маркетплейс + открытый API</td></tr>
+              <tr><td>Сложность 3D-рендеринга</td><td>WebGL + многоуровневое кэширование + CDN</td></tr>
+              <tr><td>Долгий цикл привлечения</td><td>Образовательный сегмент как якорь + партнёрки с дизайн-студиями</td></tr>
+              <tr><td>Зависимость от AI-провайдеров</td><td>Локальные модели (Ollama) + fallback на шаблоны</td></tr>
+              <tr><td>Правовые риски (авторские права)</td><td>Премодерация контента + лицензионные соглашения</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Стратегия</h3>
+        <p class="text-muted">MVP (4 мес) → полная версия (8 мес) → образовательный сегмент (параллельно) → международные рынки (год 2+).</p>
+
+        <h3>Сравнение локаций</h3>
+        <div class="risks-table">
+          <table>
+            <thead>
+              <tr><th scope="col">Локация</th><th scope="col">Бюджет</th><th scope="col">Окупаемость</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Москва</td><td class="mono">30–50 млн ₽</td><td class="mono">24–30 мес</td></tr>
+              <tr><td>СПб</td><td class="mono">25–42 млн ₽</td><td class="mono">20–26 мес</td></tr>
+              <tr><td>Казань</td><td class="mono">20–36 млн ₽</td><td class="mono">18–24 мес</td></tr>
+              <tr><td>Удалёнка</td><td class="mono">12–20 млн ₽</td><td class="mono">18–24 мес</td></tr>
+            </tbody>
+          </table>
+          <p class="case-quote">Вывод: удалённая команда с ядром в регионах = оптимальное соотношение стоимость/качество.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3D-сцена (плейсхолдер до интерактива) -->
+    <section class="section fade-in">
+      <div class="container">
+        <!-- Фаза 11: интерактивная Three.js-сцена. Логика: js/three-scene.js -->
+        <div id="tss-root">
+          <div class="tss-topbar">
+            <button type="button" id="tss-ai" class="tss-ai">AI Generate</button>
+            <div class="tss-locations">
+              <button type="button" class="tss-loc is-active" data-v="50|30|20">Москва</button>
+              <button type="button" class="tss-loc" data-v="42|26|22">СПб</button>
+              <button type="button" class="tss-loc" data-v="36|24|23">Казань</button>
+              <button type="button" class="tss-loc" data-v="20|18|25">Удалёнка</button>
+            </div>
+            <div class="tss-counters mono">
+              <span><b id="tss-budget">50M ₽</b></span>
+              <span><b id="tss-payback">30 мес</b></span>
+              <span><b id="tss-roi">20%</b></span>
+            </div>
+          </div>
+          <div class="tss-canvas-box" id="three-scene-placeholder">3D-сцена загружается...</div>
+          <div class="tss-panels">
+            <div class="tss-panel" id="tss-furniture-panel" hidden>
+              <span class="tss-label mono" id="tss-selected-name">Настройка мебели</span>
+              <button type="button" class="tss-ui-btn" id="tss-cycling">Сменить материал</button>
+              <button type="button" class="tss-ui-btn" id="tss-delete">Удалить</button>
+            </div>
+            <div class="tss-panel" id="tss-wall-panel" hidden>
+              <span class="tss-label mono">Цвет стены</span>
+              <input type="color" id="tss-wall-color" value="#e8dcc8" aria-label="Цвет стены">
+            </div>
+          </div>
+
+          <!-- Маркетплейс (фаза 12). Логика: js/three-scene.js (addFurniture) -->
+          <div class="marketplace">
+            <h3>Маркетплейс мебели</h3>
+            <p class="text-muted">Кликните на товар, чтобы добавить его в комнату (демонстрация комиссии 10-15%).</p>
+            <div class="marketplace-grid">
+              <div class="mp-card" onclick="addFurniture('chair')">Стул — 5 000 ₽</div>
+              <div class="mp-card" onclick="addFurniture('shelf')">Шкаф — 15 000 ₽</div>
+              <div class="mp-card" onclick="addFurniture('plant')">Растение — 2 000 ₽</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img class="avatar rounded-full" src="img/avatar.png" alt="Юлия Сахарова" width="80" height="80" loading="lazy">
+    <h2>Давайте поговорим</h2>
+    <p>Если у вас продукт, в котором нужен порядок, или задача, которую нужно превратить в решение — напишите.</p>
+    <ul class="contacts">
+      <li><a href="https://t.me/JSArchitectRealite">Telegram: @JSArchitectRealite</a></li>
+      <li><a href="https://instagram.com/juliasakhar_pm">Instagram: @juliasakhar_pm</a></li>
+      <li><a href="tel:+79657094101">Телефон: +7 (965) 709-41-01</a></li>
+      <li><a href="mailto:juliasakhar18@yandex.ru">Email: juliasakhar18@yandex.ru</a></li>
+    </ul>
+    <a class="btn btn--primary" href="case-storyaxis.html#briefing">Пройти брифинг перед встречей →</a>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="js/three-scene.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StoryAxis · Платформа иммерсивных квестов</title>
+  <meta name="description" content="Кейс «StoryAxis»: платформа иммерсивных квестов. Персонализация сценариев. 4 потока монетизации.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="StoryAxis · Платформа иммерсивных квестов">
+  <meta property="og:description" content="Кейс «StoryAxis»: платформа иммерсивных квестов. Персонализация сценариев. 4 потока монетизации.">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/case.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/briefing.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">Юлия Сахарова · PM</a>
+    <nav class="site-nav">
+      <a href="index.html">Главная</a>
+      <a href="case-astral.html">Астрал</a>
+      <a href="case-neirosborka.html">Нейросборка</a>
+      <a href="case-storyaxis.html">StoryAxis</a>
+      <a href="case-designmatrix.html">DesignMatrix</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="section fade-in">
+      <div class="container">
+        <p class="metric-big mono"><span data-counter="4">4</span></p>
+        <p class="stat-label" style="margin-top: 8px;">потока монетизации</p>
+        <h1>Платформа <em>иммерсивных квестов</em></h1>
+        <p class="text-muted hero-lead">4 потока монетизации. Web / Mobile / VR. Entry Points. Персонализация сценариев. Enterprise-безопасность.</p>
+      </div>
+    </section>
+
+    <!-- Слайдер презентации кейса (фаза 12). Логика: js/main.js -->
+    <div class="container">
+      <div class="case-slider-wrapper">
+        <button class="slider-btn prev" aria-label="Предыдущий слайд">&larr;</button>
+        <div class="case-slider" id="slider-storyaxis">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+1" class="slide active" alt="Слайд 1" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+2" class="slide" alt="Слайд 2" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+3" class="slide" alt="Слайд 3" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+4" class="slide" alt="Слайд 4" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+5" class="slide" alt="Слайд 5" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+6" class="slide" alt="Слайд 6" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+7" class="slide" alt="Слайд 7" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+8" class="slide" alt="Слайд 8" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+9" class="slide" alt="Слайд 9" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+10" class="slide" alt="Слайд 10" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+11" class="slide" alt="Слайд 11" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+12" class="slide" alt="Слайд 12" loading="lazy">
+        </div>
+        <button class="slider-btn next" aria-label="Следующий слайд">&rarr;</button>
+      </div>
+    </div>
+
+    <!-- Бизнес-логика -->
+    <section class="section fade-in logic">
+      <div class="container">
+        <h2>Бизнес-логика</h2>
+
+        <h3>Контекст</h3>
+        <p class="text-muted">Рынок иммерсивных сценариев (обучение, развлечения, корпоративные квесты) фрагментирован. Каждое решение — с нуля. Нет единого прогресса между устройствами. Нет инструментов безопасности для B2B и EdTech.</p>
+
+        <h3>Проблема</h3>
+        <ul class="text-muted">
+          <li>Каждый новый квест = разработка с нуля (от 500K ₽)</li>
+          <li>Нет единого стандарта → клиенты не масштабируются</li>
+          <li>Отсутствие B2B-инструментов (родительский контроль, аналитика стресса) → потеря корпоративного сегмента</li>
+          <li>Жёсткая линейность → высокий churn на старте</li>
+        </ul>
+
+        <h3>Решение</h3>
+        <p class="text-muted">Спроектировала StoryAxis — экосистему для интерактивного сторителлинга. 153 страницы ТЗ. Кроссплатформенная архитектура (Next.js, PostgreSQL, WebXR, React Native). Заложила в архитектуру защиту бизнес-интересов:</p>
+        <ul class="text-muted">
+          <li><strong>Entry Points</strong> — старт квеста с любого шага. Инфраструктурная возможность для демо-версий, A/B-тестов, персонализации.</li>
+          <li><strong>Персонализация сценариев</strong> — система точек входа позволяет адаптировать сценарии под каждого пользователя на основе паттернов поведения.</li>
+          <li><strong>4 уровня деградации</strong> — при падении AI или внешних сервисов платформа переключается на статический контент. Бизнес не теряет пользователя из-за технического сбоя.</li>
+          <li><strong>Parent Dashboard</strong> — отдельное приложение для B2B/EdTech с трекингом метрик и «красной кнопкой» экстренного выхода.</li>
+          <li><strong>Enterprise-безопасность</strong> — ротация JWT-токенов, CSP, защита от CSRF на уровне архитектуры.</li>
+        </ul>
+
+        <h3>Unit-экономика</h3>
+        <p class="text-muted">Прогноз 1-го года.</p>
+        <div class="grid-3">
+          <div class="card">
+            <p class="stat-value mono">~$5</p>
+            <p class="stat-label">CAC B2C</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">~$200</p>
+            <p class="stat-label">CAC B2B</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">~$45</p>
+            <p class="stat-label">LTV B2C</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">~$8 000</p>
+            <p class="stat-label">LTV B2B</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">~70%</p>
+            <p class="stat-label">Gross margin</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">месяц 8–10</p>
+            <p class="stat-label">Точка безубыточности</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">Прогнозируемая</p>
+            <p class="stat-label">доходность: спрогнозирована на основе unit-экономики</p>
+          </div>
+        </div>
+
+        <h3>Точки роста</h3>
+        <ol class="text-muted">
+          <li>Entry Points — старт с любого шага → демо-версии, A/B-тесты, возврат пользователей → рост конверсии</li>
+          <li>Персонализация — адаптация сценариев под паттерны поведения → рост вовлечённости</li>
+          <li>4 уровня деградации — при сбое AI платформа не падает, переключается на статику → retention</li>
+          <li>Parent Dashboard — B2B/EdTech с трекингом метрик → корпоративный сегмент</li>
+          <li>Оффлайн-режим → мобильные пользователи в метро/поездках → рост DAU</li>
+          <li>StoryAxis Studio — визуальный конструктор для авторов без программистов → Creator Economy</li>
+          <li>AI-слой — генерация контента, анализ вовлечённости → премиум-функции</li>
+        </ol>
+
+        <h3>Риски и митигация</h3>
+        <div class="risks-table">
+          <table>
+            <thead>
+              <tr><th scope="col">Риск</th><th scope="col">Митигация</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Сбой AI-сервиса</td><td>4 уровня деградации, fallback на статику</td></tr>
+              <tr><td>Кража JWT-токенов</td><td>Ротация refresh-токенов, привязка к deviceId</td></tr>
+              <tr><td>DDoS</td><td>Rate limiting по IP/user/endpoint, WAF</td></tr>
+              <tr><td>Потеря прогресса пользователя</td><td>Оффлайн-журнал + синхронизация при восстановлении сети</td></tr>
+              <tr><td>Взлом мобильного приложения</td><td>Certificate pinning, root/jailbreak detection</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Стратегия</h3>
+        <ul class="case-quote">
+          <li><strong>Фаза 1:</strong> Web + Backend + админка (MVP)</li>
+          <li><strong>Фаза 2:</strong> Mobile + оффлайн + платежи</li>
+          <li><strong>Фаза 3:</strong> VR + AI + Parent Dashboard</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Брифинг: пошаговый визард (интерактив: js/briefing.js) -->
+    <section id="briefing" class="section fade-in">
+      <div class="container">
+        <h2>Брифинг</h2>
+        <p class="text-muted">Займёт 90 секунд. Все ответы конфиденциальны.</p>
+        <!-- Каркас визарда фазы 9. Логика: js/briefing.js. Тексты: сценарий фазы 9 + spec/06-storyaxis.md -->
+        <div id="briefing-container">
+          <div class="bf-wrapper">
+            <div class="bf-topbar">
+              <div class="bf-topbar-left">
+                <img src="img/avatar.png" alt="Юлия Сахарова" class="bf-topbar-avatar rounded-full" width="28" height="28">
+                <span class="bf-title mono">ДИАГНОСТИКА</span>
+              </div>
+              <button class="bf-reset" onclick="localStorage.removeItem('sa_briefing_state'); location.reload();">↺ Начать заново</button>
+            </div>
+            <div class="bf-content" id="bf-content">
+              <!-- Сюда JS рендерит текущий шаг -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img class="avatar rounded-full" src="img/avatar.png" alt="Юлия Сахарова" width="80" height="80" loading="lazy">
+    <h2>Давайте поговорим</h2>
+    <p>Если у вас продукт, в котором нужен порядок, или задача, которую нужно превратить в решение — напишите.</p>
+    <ul class="contacts">
+      <li><a href="https://t.me/JSArchitectRealite">Telegram: @JSArchitectRealite</a></li>
+      <li><a href="https://instagram.com/juliasakhar_pm">Instagram: @juliasakhar_pm</a></li>
+      <li><a href="tel:+79657094101">Телефон: +7 (965) 709-41-01</a></li>
+      <li><a href="mailto:juliasakhar18@yandex.ru">Email: juliasakhar18@yandex.ru</a></li>
+    </ul>
+    <a class="btn btn--primary" href="case-storyaxis.html#briefing">Пройти брифинг перед встречей →</a>
+  </footer>
+</body>
+</html>

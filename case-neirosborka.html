@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Нейросборка · AI-комьюнити и платформа знаний</title>
+  <meta name="description" content="Кейс «Нейросборка»: AI-комьюнити и платформа знаний.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Нейросборка · AI-комьюнити и платформа знаний">
+  <meta property="og:description" content="Кейс «Нейросборка»: AI-комьюнити и платформа знаний.">
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/case.css">
+  <link rel="stylesheet" href="css/neon.css">
+  <script src="js/main.js" defer></script>
+  <script src="js/platform-demo.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">Юлия Сахарова · PM</a>
+    <nav class="site-nav">
+      <a href="index.html">Главная</a>
+      <a href="case-astral.html">Астрал</a>
+      <a href="case-neirosborka.html">Нейросборка</a>
+      <a href="case-storyaxis.html">StoryAxis</a>
+      <a href="case-designmatrix.html">DesignMatrix</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="section fade-in">
+      <div class="container">
+        <p class="metric-big mono"><span data-counter="0" data-counter-suffix="%">0%</span></p>
+        <h1>От хаоса чата <em>к экосистеме с подпиской</em></h1>
+        <p class="text-muted hero-lead">Регламенты, подписка, AI-чат на RAG. Ни одного ушедшего эксперта за 6 месяцев.</p>
+      </div>
+    </section>
+
+    <!-- Слайдер презентации кейса (фаза 12). Логика: js/main.js -->
+    <div class="container">
+      <div class="case-slider-wrapper">
+        <button class="slider-btn prev" aria-label="Предыдущий слайд">&larr;</button>
+        <div class="case-slider" id="slider-neirosborka">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+1" class="slide active" alt="Слайд 1" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+2" class="slide" alt="Слайд 2" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+3" class="slide" alt="Слайд 3" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+4" class="slide" alt="Слайд 4" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+5" class="slide" alt="Слайд 5" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+6" class="slide" alt="Слайд 6" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+7" class="slide" alt="Слайд 7" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+8" class="slide" alt="Слайд 8" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+9" class="slide" alt="Слайд 9" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+10" class="slide" alt="Слайд 10" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+11" class="slide" alt="Слайд 11" loading="lazy">
+          <img src="https://placehold.co/1200x675/22262B/A89CC8?text=Slide+12" class="slide" alt="Слайд 12" loading="lazy">
+        </div>
+        <button class="slider-btn next" aria-label="Следующий слайд">&rarr;</button>
+      </div>
+    </div>
+
+    <!-- Бизнес-логика -->
+    <section class="section fade-in logic">
+      <div class="container">
+        <h2>Бизнес-логика</h2>
+
+        <h3>Контекст</h3>
+        <p class="text-muted">Закрытое комьюнити нейросетей. Эксперты делятся находками. Пришёл участник с идеей платформы — требовал сделать всё бесплатно, хамил разработчикам, пытался использовать ресурсы без вклада.</p>
+
+        <h3>Проблема</h3>
+        <ul class="text-muted">
+          <li>Риск утечки ИС (промпты и воркфлоу уходили бесплатно)</li>
+          <li>Токсичность → отток ядра аудитории → смерть комьюнити</li>
+          <li>Отсутствие монетизации → нет ресурсов на развитие</li>
+          <li>Бесплатные потребители vs создатели ценности = разрушение экосистемы</li>
+        </ul>
+
+        <h3>Решение</h3>
+        <p class="text-muted">Разработала регламенты коммерческой деятельности (разделение «услуги» и «помощи», правила распределения прибыли). Система хештег-навигации для чата. Два уровня подписки (500 ₽ / 700 ₽). Спроектировала платформу с AI-чатом на RAG (LangChain + pgvector + VK API) и ролевой моделью доступа (Гость / Базовый / Расширенный / Админ). База знаний структурирована по 8 секторам.</p>
+      </div>
+    </section>
+
+    <!-- Две системы: не смешивать -->
+    <section class="section fade-in logic">
+      <div class="container">
+        <div class="system-block">
+          <h3>Хештеги чата</h3>
+          <p class="text-muted">Правила навигации в чате комьюнити.</p>
+          <div class="tag-row">
+            <span class="tag">#вопрос</span>
+            <span class="tag">#критика</span>
+            <span class="tag">#коллаб</span>
+            <span class="tag">#соавторство</span>
+            <span class="tag">#находка</span>
+          </div>
+        </div>
+
+        <div class="system-block">
+          <h3>Сектора базы знаний</h3>
+          <p class="text-muted">Структура платформы, 8 секторов.</p>
+          <div class="grid-2-4">
+            <div class="card sector-card"><span class="sector-num mono">1</span><p class="sector-name">Локальные нейросети</p></div>
+            <div class="card sector-card"><span class="sector-num mono">2</span><p class="sector-name">Облачные нейросети</p></div>
+            <div class="card sector-card"><span class="sector-num mono">3</span><p class="sector-name">Маркетинг</p></div>
+            <div class="card sector-card"><span class="sector-num mono">4</span><p class="sector-name">Дизайн</p></div>
+            <div class="card sector-card"><span class="sector-num mono">5</span><p class="sector-name">Визуал и графика</p></div>
+            <div class="card sector-card"><span class="sector-num mono">6</span><p class="sector-name">Монтаж и видео</p></div>
+            <div class="card sector-card"><span class="sector-num mono">7</span><p class="sector-name">Музыка и звук</p></div>
+            <div class="card sector-card"><span class="sector-num mono">8</span><p class="sector-name">Кодинг и автоматизация</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Экономика и планы -->
+    <section class="section fade-in logic">
+      <div class="container">
+        <h3>Unit-экономика</h3>
+        <div class="grid-3">
+          <div class="card">
+            <p class="stat-value mono">~0 ₽</p>
+            <p class="stat-label">CAC (сарафан + органика)</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">6 000 ₽/год</p>
+            <p class="stat-label">LTV базового</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">8 400 ₽/год</p>
+            <p class="stat-label">LTV расширенного</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">100%</p>
+            <p class="stat-label">Retention ядра за 6 месяцев</p>
+          </div>
+          <div class="card">
+            <p class="stat-value mono">~30</p>
+            <p class="stat-label">платящих участников — точка безубыточности</p>
+          </div>
+        </div>
+
+        <h3>Точки роста</h3>
+        <ol class="text-muted">
+          <li>Платформа с AI-чатом на RAG → структурирование знаний</li>
+          <li>Ролевая модель доступа → монетизация через уровни</li>
+          <li>Ручная выдача доступа админом → гибкость для партнёров и VIP</li>
+          <li>Пользовательский контент → модерация → бонусы за статьи → виральность</li>
+          <li>B2B-направление: корпоративные комьюнити на базе платформы</li>
+        </ol>
+
+        <h3>Риски и митигация</h3>
+        <div class="risks-table">
+          <table>
+            <thead>
+              <tr><th scope="col">Риск</th><th scope="col">Митигация</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Токсичность</td><td>Премодерация, разделение «услуги» и «помощи»</td></tr>
+              <tr><td>Бесплатное потребление</td><td>2 уровня подписки, лимиты (5 запросов AI/день)</td></tr>
+              <tr><td>Зависимость от VK API</td><td>Резервный вход по email + паролю</td></tr>
+              <tr><td>Злоупотребления админов</td><td>Логирование выдач бесплатного доступа, уведомления основателю</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Стратегия</h3>
+        <p class="case-quote">От чата → к платформе → к экосистеме. Сначала правила, потом монетизация, потом AI. Не наоборот.</p>
+      </div>
+    </section>
+
+    <!-- Демо платформы (неоново-зелёный интерактив: js/platform-demo.js + css/neon.css) -->
+    <section class="section fade-in" id="platform-demo">
+      <div class="container">
+        <h2>Демо платформы</h2>
+        <p class="text-muted">Ролевая модель платформы: Гость, Базовый, Расширенный, Админ. Переключайте роли — интерфейс меняется.</p>
+
+        <div class="demo-frame" id="demo-frame" data-role="guest">
+          <div class="demo-roles" role="tablist" aria-label="Роли платформы">
+            <button type="button" class="demo-role mono is-active" data-role="guest" aria-selected="true">Гость</button>
+            <button type="button" class="demo-role mono" data-role="basic" aria-selected="false">Базовый</button>
+            <button type="button" class="demo-role mono" data-role="advanced" aria-selected="false">Расширенный</button>
+            <button type="button" class="demo-role mono" data-role="admin" aria-selected="false">Админ</button>
+          </div>
+
+          <p class="demo-status mono" id="demo-status" aria-live="polite"></p>
+
+          <div class="demo-body">
+            <div class="demo-knowledge">
+              <p class="demo-col-title mono">База знаний · 8 секторов</p>
+              <div class="demo-grid">
+                <article class="demo-sector">
+                  <span class="demo-sector-num mono" aria-hidden="true">01</span>
+                  <p class="demo-sector-name">Локальные нейросети</p>
+                  <span class="demo-badge mono" aria-hidden="true">Демо</span>
+                  <div class="demo-lock"><p>Доступ ограничен</p></div>
+                </article>
+                <article class="demo-sector">
+                  <span class="demo-sector-num mono" aria-hidden="true">02</span>
+                  <p class="demo-sector-name">Облачные нейросети</p>
+                  <span class="demo-badge mono" aria-hidden="true">Демо</span>
+                  <div class="demo-lock"><p>Доступ ограничен</p></div>
+                </article>
+                <article class="demo-sector">
+                  <span class="demo-sector-num mono" aria-hidden="true">03</span>
+                  <p class="demo-sector-name">Маркетинг</p>
+                  <span class="demo-badge mono" aria-hidden="true">Демо</span>
+                  <div class="demo-lock"><p>Доступ ограничен</p></div>
+                </article>
+                <article class="demo-sector">
+                  <span class="demo-sector-num mono" aria-hidden="true">04</span>
+                  <p class="demo-sector-name">Дизайн</p>
+                  <span class="demo-badge mono" aria-hidden="true">Демо</span>
+                  <div class="demo-lock"><p>Доступ ограничен</p></div>
+                </article>
+                <article class="demo-sector">
+                  <span class="demo-sector-num mono" aria-hidden="true">05</span>
+                  <p class="demo-sector-name">Визуал и графика</p>
+                  <span class="demo-badge mono" aria-hidden="true">Демо</span>
+                  <div class="demo-lock"><p>Доступ ограничен</p></div>
+                </article>
+                <article class="demo-sector">
+                  <span class="demo-sector-num mono" aria-hidden="true">06</span>
+                  <p class="demo-sector-name">Монтаж и видео</p>
+                  <span class="demo-badge mono" aria-hidden="true">Демо</span>
+                  <div class="demo-lock"><p>Доступ ограничен</p></div>
+                </article>
+                <article class="demo-sector">
+                  <span class="demo-sector-num mono" aria-hidden="true">07</span>
+                  <p class="demo-sector-name">Музыка и звук</p>
+                  <span class="demo-badge mono" aria-hidden="true">Демо</span>
+                  <div class="demo-lock"><p>Доступ ограничен</p></div>
+                </article>
+                <article class="demo-sector">
+                  <span class="demo-sector-num mono" aria-hidden="true">08</span>
+                  <p class="demo-sector-name">Кодинг и автоматизация</p>
+                  <span class="demo-badge mono" aria-hidden="true">Демо</span>
+                  <div class="demo-lock"><p>Доступ ограничен</p></div>
+                </article>
+              </div>
+            </div>
+
+            <aside class="demo-chat">
+              <p class="demo-col-title mono">AI-чат</p>
+              <div class="demo-chat-window" id="demo-chat-window">
+                <div class="demo-feed" id="demo-feed" aria-live="polite">
+                  <article class="demo-msg demo-msg--ai">
+                    <div class="demo-bubble">Спросите что-нибудь — ответ придёт из базы знаний.</div>
+                  </article>
+                </div>
+                <div class="chat-lock"><p>Требуется подписка</p></div>
+              </div>
+              <div class="demo-chat-controls">
+                <button type="button" class="demo-upload" id="demo-upload" title="Загрузить изображение (компьютерное зрение)" aria-label="Загрузить изображение"></button>
+                <input type="text" id="demo-input" class="demo-input mono" placeholder="Ваш вопрос…" aria-label="Ваш вопрос">
+                <button type="button" class="demo-ask mono" id="demo-ask">Спросить</button>
+              </div>
+              <button type="button" class="demo-topic mono" id="demo-topic">Предложить тему</button>
+            </aside>
+          </div>
+
+          <div class="demo-admin" id="demo-admin">
+            <div class="demo-admin-form">
+              <p class="demo-col-title mono">Выдача бесплатного доступа</p>
+              <form id="demo-admin-form">
+                <label>
+                  <span>Имя</span>
+                  <input type="text" id="demo-f-name" autocomplete="off" required>
+                </label>
+                <label>
+                  <span>Email</span>
+                  <input type="email" id="demo-f-email" autocomplete="off" required>
+                </label>
+                <label>
+                  <span>Срок</span>
+                  <select id="demo-f-term">
+                    <option value="1 неделя">1 неделя</option>
+                    <option value="1 месяц">1 месяц</option>
+                    <option value="3 месяца">3 месяца</option>
+                    <option value="Бессрочно">Бессрочно</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Причина</span>
+                  <input type="text" id="demo-f-reason" autocomplete="off" required>
+                </label>
+                <button type="submit" class="demo-grant mono">Выдать</button>
+              </form>
+            </div>
+            <div class="demo-admin-log">
+              <p class="demo-col-title mono">Лог действий · последние 5</p>
+              <ul id="demo-log" aria-live="polite"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img class="avatar rounded-full" src="img/avatar.png" alt="Юлия Сахарова" width="80" height="80" loading="lazy">
+    <h2>Давайте поговорим</h2>
+    <p>Если у вас продукт, в котором нужен порядок, или задача, которую нужно превратить в решение — напишите.</p>
+    <ul class="contacts">
+      <li><a href="https://t.me/JSArchitectRealite">Telegram: @JSArchitectRealite</a></li>
+      <li><a href="https://instagram.com/juliasakhar_pm">Instagram: @juliasakhar_pm</a></li>
+      <li><a href="tel:+79657094101">Телефон: +7 (965) 709-41-01</a></li>
+      <li><a href="mailto:juliasakhar18@yandex.ru">Email: juliasakhar18@yandex.ru</a></li>
+    </ul>
+    <a class="btn btn--primary" href="case-storyaxis.html#briefing">Пройти брифинг перед встречей →</a>
+  </footer>
+</body>
+</html>
