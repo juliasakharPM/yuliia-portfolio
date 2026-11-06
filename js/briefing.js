@@ -8,7 +8,7 @@
 const BF_STORAGE_KEY = 'sa_briefing_state';
 
 // TODO: заменить YOUR_FORM_ID на реальный endpoint Formspree.
-const BF_FORMSPREE_URL = 'https://formspree.io/f/YOUR_FORM_ID';
+const BF_FORMSPREE_URL = 'https://formspree.io/f/mrppjjwr';
 
 // Состояние визарда. Шаги: 1 интро → 2 задача → 3 стадия →
 // 4 метрика → 5 боль → 6 кейс → 7 форма → 8 финал (success).
