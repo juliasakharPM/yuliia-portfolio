@@ -130,18 +130,39 @@ document.querySelectorAll('.case-slider-wrapper').forEach((wrapper) => {
     startAutoplay();
   });
 
-  wrapper.addEventListener('touchstart', () => {
+  // Свайп: больше 50 px по горизонтали — переключаем слайд.
+  const SWIPE_THRESHOLD = 50;
+  let touchStartX = null;
+  let touchStartY = null;
+
+  wrapper.addEventListener('touchstart', (event) => {
     paused = true;
     stopAutoplay();
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
   }, { passive: true });
 
-  const resumeAfterTouch = () => {
+  const resetTouch = () => {
+    touchStartX = null;
+    touchStartY = null;
     paused = false;
     startAutoplay();
   };
 
-  wrapper.addEventListener('touchend', resumeAfterTouch, { passive: true });
-  wrapper.addEventListener('touchcancel', resumeAfterTouch, { passive: true });
+  wrapper.addEventListener('touchend', (event) => {
+    if (touchStartX !== null && touchStartY !== null) {
+      const touch = event.changedTouches[0];
+      const dx = touch.clientX - touchStartX;
+      const dy = touch.clientY - touchStartY;
+      if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)) {
+        nextSlide(slider, dx < 0 ? 1 : -1);
+      }
+    }
+    resetTouch();
+  }, { passive: true });
+
+  wrapper.addEventListener('touchcancel', resetTouch, { passive: true });
 
   startAutoplay();
 });

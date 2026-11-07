@@ -42,6 +42,7 @@
       <div class="container">
         <p class="metric-big mono"><span data-counter="4">4</span></p>
         <p class="stat-label" style="margin-top: 8px;">потока монетизации</p>
+        <div class="case-label mono" style="color: var(--accent); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">StoryAxis · Платформа иммерсивных квестов</div>
         <h1>Платформа <em>иммерсивных квестов</em></h1>
         <p class="text-muted hero-lead">4 потока монетизации. Web / Mobile / VR. Entry Points. Персонализация сценариев. Enterprise-безопасность.</p>
       </div>
@@ -72,121 +73,163 @@
       <div class="container">
         <h2>Бизнес-логика</h2>
 
-        <h3>Контекст</h3>
-        <p class="text-muted">Рынок иммерсивных сценариев (обучение, развлечения, корпоративные квесты) фрагментирован. Каждое решение — с нуля. Нет единого прогресса между устройствами. Нет инструментов безопасности для B2B и EdTech.</p>
+        <details class="logic-accordion" open>
+          <summary class="logic-summary">
+            <h3>Контекст</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <p class="text-muted">Рынок иммерсивных сценариев (обучение, развлечения, корпоративные квесты) фрагментирован. Каждое решение — с нуля. Нет единого прогресса между устройствами. Нет инструментов безопасности для B2B и EdTech.</p>
 
-        <h3>Проблема</h3>
-        <ul class="text-muted">
-          <li>Каждый новый квест = разработка с нуля (от 500K ₽)</li>
-          <li>Нет единого стандарта → клиенты не масштабируются</li>
-          <li>Отсутствие B2B-инструментов (родительский контроль, аналитика стресса) → потеря корпоративного сегмента</li>
-          <li>Жёсткая линейность → высокий churn на старте</li>
-        </ul>
+          </div>
+        </details>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Проблема</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <ul class="text-muted">
+            <li>Каждый новый квест = разработка с нуля (от 500K ₽)</li>
+            <li>Нет единого стандарта → клиенты не масштабируются</li>
+            <li>Отсутствие B2B-инструментов (родительский контроль, аналитика стресса) → потеря корпоративного сегмента</li>
+            <li>Жёсткая линейность → высокий churn на старте</li>
+          </ul>
 
-        <h3>Решение</h3>
-        <p class="text-muted">Спроектировала StoryAxis — экосистему для интерактивного сторителлинга. 153 страницы ТЗ. Кроссплатформенная архитектура (Next.js, PostgreSQL, WebXR, React Native). Заложила в архитектуру защиту бизнес-интересов:</p>
-        <ul class="text-muted">
-          <li><strong>Entry Points</strong> — старт квеста с любого шага. Инфраструктурная возможность для демо-версий, A/B-тестов, персонализации.</li>
-          <li><strong>Персонализация сценариев</strong> — система точек входа позволяет адаптировать сценарии под каждого пользователя на основе паттернов поведения.</li>
-          <li><strong>4 уровня деградации</strong> — при падении AI или внешних сервисов платформа переключается на статический контент. Бизнес не теряет пользователя из-за технического сбоя.</li>
-          <li><strong>Parent Dashboard</strong> — отдельное приложение для B2B/EdTech с трекингом метрик и «красной кнопкой» экстренного выхода.</li>
-          <li><strong>Enterprise-безопасность</strong> — ротация JWT-токенов, CSP, защита от CSRF на уровне архитектуры.</li>
-        </ul>
+          </div>
+        </details>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Решение</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <p class="text-muted">Спроектировала StoryAxis — экосистему для интерактивного сторителлинга. 153 страницы ТЗ. Кроссплатформенная архитектура (Next.js, PostgreSQL, WebXR, React Native). Заложила в архитектуру защиту бизнес-интересов:</p>
+          <ul class="text-muted">
+            <li><strong>Entry Points</strong> — старт квеста с любого шага. Инфраструктурная возможность для демо-версий, A/B-тестов, персонализации.</li>
+            <li><strong>Персонализация сценариев</strong> — система точек входа позволяет адаптировать сценарии под каждого пользователя на основе паттернов поведения.</li>
+            <li><strong>4 уровня деградации</strong> — при падении AI или внешних сервисов платформа переключается на статический контент. Бизнес не теряет пользователя из-за технического сбоя.</li>
+            <li><strong>Parent Dashboard</strong> — отдельное приложение для B2B/EdTech с трекингом метрик и «красной кнопкой» экстренного выхода.</li>
+            <li><strong>Enterprise-безопасность</strong> — ротация JWT-токенов, CSP, защита от CSRF на уровне архитектуры.</li>
+          </ul>
 
-        <h3>Unit-экономика</h3>
-        <p class="text-muted">Прогноз 1-го года.</p>
-        <div class="metrics-accordion">
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">~$5</span> — CAC B2C <span class="arrow">▸</span>
-          </summary>
-          <div class="metric-text">
-            <p>Стоимость привлечения одного частного пользователя через контент и органику.</p>
           </div>
         </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">~$200</span> — CAC B2B <span class="arrow">▸</span>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Unit-экономика</h3> <span class="arrow">▾</span>
           </summary>
-          <div class="metric-text">
-            <p>Стоимость привлечения корпоративного клиента: продажи, демо и пилоты.</p>
+          <div class="logic-content">
+          <p class="text-muted">Прогноз 1-го года.</p>
+          <div class="metrics-accordion">
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">~$5</span> — CAC B2C <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Стоимость привлечения одного частного пользователя через контент и органику.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">~$200</span> — CAC B2B <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Стоимость привлечения корпоративного клиента: продажи, демо и пилоты.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">~$45</span> — LTV B2C <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Средняя выручка с одного частного пользователя за всё время жизни.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">~$8 000</span> — LTV B2B <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Средняя выручка с корпоративного клиента за время сотрудничества.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">~70%</span> — Gross margin <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Доля выручки, остающаяся после прямых затрат на инфраструктуру и поддержку.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">месяц 8–10</span> — Точка безубыточности <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Месяц, когда выручка покрывает операционные расходы проекта.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">Прогнозируемая</span> — доходность: спрогнозирована на основе unit-экономики <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Доходность рассчитана на основе CAC, LTV, gross margin и прогноза роста аудитории.</p>
+            </div>
+          </details>
           </div>
-        </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">~$45</span> — LTV B2C <span class="arrow">▸</span>
-          </summary>
-          <div class="metric-text">
-            <p>Средняя выручка с одного частного пользователя за всё время жизни.</p>
-          </div>
-        </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">~$8 000</span> — LTV B2B <span class="arrow">▸</span>
-          </summary>
-          <div class="metric-text">
-            <p>Средняя выручка с корпоративного клиента за время сотрудничества.</p>
-          </div>
-        </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">~70%</span> — Gross margin <span class="arrow">▸</span>
-          </summary>
-          <div class="metric-text">
-            <p>Доля выручки, остающаяся после прямых затрат на инфраструктуру и поддержку.</p>
-          </div>
-        </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">месяц 8–10</span> — Точка безубыточности <span class="arrow">▸</span>
-          </summary>
-          <div class="metric-text">
-            <p>Месяц, когда выручка покрывает операционные расходы проекта.</p>
-          </div>
-        </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">Прогнозируемая</span> — доходность: спрогнозирована на основе unit-экономики <span class="arrow">▸</span>
-          </summary>
-          <div class="metric-text">
-            <p>Доходность рассчитана на основе CAC, LTV, gross margin и прогноза роста аудитории.</p>
-          </div>
-        </details>
-        </div>
 
-        <h3>Точки роста</h3>
-        <ol class="text-muted">
-          <li>Entry Points — старт с любого шага → демо-версии, A/B-тесты, возврат пользователей → рост конверсии</li>
-          <li>Персонализация — адаптация сценариев под паттерны поведения → рост вовлечённости</li>
-          <li>4 уровня деградации — при сбое AI платформа не падает, переключается на статику → retention</li>
-          <li>Parent Dashboard — B2B/EdTech с трекингом метрик → корпоративный сегмент</li>
-          <li>Оффлайн-режим → мобильные пользователи в метро/поездках → рост DAU</li>
-          <li>StoryAxis Studio — визуальный конструктор для авторов без программистов → Creator Economy</li>
-          <li>AI-слой — генерация контента, анализ вовлечённости → премиум-функции</li>
-        </ol>
+          </div>
+        </details>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Точки роста</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <ol class="text-muted">
+            <li>Entry Points — старт с любого шага → демо-версии, A/B-тесты, возврат пользователей → рост конверсии</li>
+            <li>Персонализация — адаптация сценариев под паттерны поведения → рост вовлечённости</li>
+            <li>4 уровня деградации — при сбое AI платформа не падает, переключается на статику → retention</li>
+            <li>Parent Dashboard — B2B/EdTech с трекингом метрик → корпоративный сегмент</li>
+            <li>Оффлайн-режим → мобильные пользователи в метро/поездках → рост DAU</li>
+            <li>StoryAxis Studio — визуальный конструктор для авторов без программистов → Creator Economy</li>
+            <li>AI-слой — генерация контента, анализ вовлечённости → премиум-функции</li>
+          </ol>
 
-        <h3>Риски и митигация</h3>
-        <div class="risks-table">
-          <table>
-            <thead>
-              <tr><th scope="col">Риск</th><th scope="col">Митигация</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Сбой AI-сервиса</td><td>4 уровня деградации, fallback на статику</td></tr>
-              <tr><td>Кража JWT-токенов</td><td>Ротация refresh-токенов, привязка к deviceId</td></tr>
-              <tr><td>DDoS</td><td>Rate limiting по IP/user/endpoint, WAF</td></tr>
-              <tr><td>Потеря прогресса пользователя</td><td>Оффлайн-журнал + синхронизация при восстановлении сети</td></tr>
-              <tr><td>Взлом мобильного приложения</td><td>Certificate pinning, root/jailbreak detection</td></tr>
-            </tbody>
-          </table>
-        </div>
+          </div>
+        </details>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Риски и митигация</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <div class="risks-table">
+            <table>
+              <thead>
+                <tr><th scope="col">Риск</th><th scope="col">Митигация</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Сбой AI-сервиса</td><td>4 уровня деградации, fallback на статику</td></tr>
+                <tr><td>Кража JWT-токенов</td><td>Ротация refresh-токенов, привязка к deviceId</td></tr>
+                <tr><td>DDoS</td><td>Rate limiting по IP/user/endpoint, WAF</td></tr>
+                <tr><td>Потеря прогресса пользователя</td><td>Оффлайн-журнал + синхронизация при восстановлении сети</td></tr>
+                <tr><td>Взлом мобильного приложения</td><td>Certificate pinning, root/jailbreak detection</td></tr>
+              </tbody>
+            </table>
+          </div>
 
-        <h3>Стратегия</h3>
-        <ul class="case-quote">
-          <li><strong>Фаза 1:</strong> Web + Backend + админка (MVP)</li>
-          <li><strong>Фаза 2:</strong> Mobile + оффлайн + платежи</li>
-          <li><strong>Фаза 3:</strong> VR + AI + Parent Dashboard</li>
-        </ul>
+          </div>
+        </details>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Стратегия</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <ul class="case-quote">
+            <li><strong>Фаза 1:</strong> Web + Backend + админка (MVP)</li>
+            <li><strong>Фаза 2:</strong> Mobile + оффлайн + платежи</li>
+            <li><strong>Фаза 3:</strong> VR + AI + Parent Dashboard</li>
+          </ul>
+          </div>
+        </details>
       </div>
     </section>
 

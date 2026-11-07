@@ -42,6 +42,7 @@
     <section class="section fade-in">
       <div class="container">
         <p class="metric-big mono"><span data-counter="0" data-counter-suffix="%">0%</span></p>
+        <div class="case-label mono" style="color: #00FF88; font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Нейросборка · Закрытое комьюнити и платформа знаний</div>
         <h1>От хаоса чата <em>к экосистеме с подпиской</em></h1>
         <p class="text-muted hero-lead">Регламенты, подписка, AI-чат на RAG. Ни одного ушедшего эксперта за 6 месяцев.</p>
       </div>
@@ -73,19 +74,37 @@
       <div class="container">
         <h2>Бизнес-логика</h2>
 
-        <h3>Контекст</h3>
-        <p class="text-muted">Закрытое комьюнити нейросетей. Эксперты делятся находками. Пришёл участник с идеей платформы — требовал сделать всё бесплатно, хамил разработчикам, пытался использовать ресурсы без вклада.</p>
+        <details class="logic-accordion" open>
+          <summary class="logic-summary">
+            <h3>Контекст</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <p class="text-muted">Закрытое комьюнити нейросетей. Эксперты делятся находками. Пришёл участник с идеей платформы — требовал сделать всё бесплатно, хамил разработчикам, пытался использовать ресурсы без вклада.</p>
 
-        <h3>Проблема</h3>
-        <ul class="text-muted">
-          <li>Риск утечки ИС (промпты и воркфлоу уходили бесплатно)</li>
-          <li>Токсичность → отток ядра аудитории → смерть комьюнити</li>
-          <li>Отсутствие монетизации → нет ресурсов на развитие</li>
-          <li>Бесплатные потребители vs создатели ценности = разрушение экосистемы</li>
-        </ul>
+          </div>
+        </details>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Проблема</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <ul class="text-muted">
+            <li>Риск утечки ИС (промпты и воркфлоу уходили бесплатно)</li>
+            <li>Токсичность → отток ядра аудитории → смерть комьюнити</li>
+            <li>Отсутствие монетизации → нет ресурсов на развитие</li>
+            <li>Бесплатные потребители vs создатели ценности = разрушение экосистемы</li>
+          </ul>
 
-        <h3>Решение</h3>
-        <p class="text-muted">Разработала регламенты коммерческой деятельности (разделение «услуги» и «помощи», правила распределения прибыли). Система хештег-навигации для чата. Два уровня подписки (500 ₽ / 700 ₽). Спроектировала платформу с AI-чатом на RAG (LangChain + pgvector + VK API) и ролевой моделью доступа (Гость / Базовый / Расширенный / Админ). База знаний структурирована по 8 секторам.</p>
+          </div>
+        </details>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Решение</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <p class="text-muted">Разработала регламенты коммерческой деятельности (разделение «услуги» и «помощи», правила распределения прибыли). Система хештег-навигации для чата. Два уровня подписки (500 ₽ / 700 ₽). Спроектировала платформу с AI-чатом на RAG (LangChain + pgvector + VK API) и ролевой моделью доступа (Гость / Базовый / Расширенный / Админ). База знаний структурирована по 8 секторам.</p>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -119,81 +138,106 @@
           </div>
         </div>
       </div>
+      </div>
     </section>
 
     <!-- Экономика и планы -->
     <section class="section logic">
       <div class="container">
-        <h3>Unit-экономика</h3>
-        <div class="metrics-accordion">
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">~0 ₽</span> — CAC (сарафан + органика) <span class="arrow">▸</span>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Unit-экономика</h3> <span class="arrow">▾</span>
           </summary>
-          <div class="metric-text">
-            <p>Привлечение участников идёт через сарафанное радио и органический трафик, без платного продвижения.</p>
+          <div class="logic-content">
+          <div class="metrics-accordion">
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">~0 ₽</span> — CAC (сарафан + органика) <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Привлечение участников идёт через сарафанное радио и органический трафик, без платного продвижения.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">6 000 ₽/год</span> — LTV базового <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Годовая выручка с базовой подписки 500 ₽/мес.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">8 400 ₽/год</span> — LTV расширенного <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Годовая выручка с расширенной подписки 700 ₽/мес.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">100%</span> — Retention ядра за 6 месяцев <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Ядро аудитории остаётся в комьюнити: удержание 100% за первые полгода.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">~30</span> — платящих участников — точка безубыточности <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Столько платящих подписчиков нужно, чтобы покрыть операционные расходы платформы.</p>
+            </div>
+          </details>
           </div>
-        </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">6 000 ₽/год</span> — LTV базового <span class="arrow">▸</span>
-          </summary>
-          <div class="metric-text">
-            <p>Годовая выручка с базовой подписки 500 ₽/мес.</p>
-          </div>
-        </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">8 400 ₽/год</span> — LTV расширенного <span class="arrow">▸</span>
-          </summary>
-          <div class="metric-text">
-            <p>Годовая выручка с расширенной подписки 700 ₽/мес.</p>
-          </div>
-        </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">100%</span> — Retention ядра за 6 месяцев <span class="arrow">▸</span>
-          </summary>
-          <div class="metric-text">
-            <p>Ядро аудитории остаётся в комьюнити: удержание 100% за первые полгода.</p>
-          </div>
-        </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">~30</span> — платящих участников — точка безубыточности <span class="arrow">▸</span>
-          </summary>
-          <div class="metric-text">
-            <p>Столько платящих подписчиков нужно, чтобы покрыть операционные расходы платформы.</p>
-          </div>
-        </details>
-        </div>
 
-        <h3>Точки роста</h3>
-        <ol class="text-muted">
-          <li>Платформа с AI-чатом на RAG → структурирование знаний</li>
-          <li>Ролевая модель доступа → монетизация через уровни</li>
-          <li>Ручная выдача доступа админом → гибкость для партнёров и VIP</li>
-          <li>Пользовательский контент → модерация → бонусы за статьи → виральность</li>
-          <li>B2B-направление: корпоративные комьюнити на базе платформы</li>
-        </ol>
+          </div>
+        </details>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Точки роста</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <ol class="text-muted">
+            <li>Платформа с AI-чатом на RAG → структурирование знаний</li>
+            <li>Ролевая модель доступа → монетизация через уровни</li>
+            <li>Ручная выдача доступа админом → гибкость для партнёров и VIP</li>
+            <li>Пользовательский контент → модерация → бонусы за статьи → виральность</li>
+            <li>B2B-направление: корпоративные комьюнити на базе платформы</li>
+          </ol>
 
-        <h3>Риски и митигация</h3>
-        <div class="risks-table">
-          <table>
-            <thead>
-              <tr><th scope="col">Риск</th><th scope="col">Митигация</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Токсичность</td><td>Премодерация, разделение «услуги» и «помощи»</td></tr>
-              <tr><td>Бесплатное потребление</td><td>2 уровня подписки, лимиты (5 запросов AI/день)</td></tr>
-              <tr><td>Зависимость от VK API</td><td>Резервный вход по email + паролю</td></tr>
-              <tr><td>Злоупотребления админов</td><td>Логирование выдач бесплатного доступа, уведомления основателю</td></tr>
-            </tbody>
-          </table>
-        </div>
+          </div>
+        </details>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Риски и митигация</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <div class="risks-table">
+            <table>
+              <thead>
+                <tr><th scope="col">Риск</th><th scope="col">Митигация</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Токсичность</td><td>Премодерация, разделение «услуги» и «помощи»</td></tr>
+                <tr><td>Бесплатное потребление</td><td>2 уровня подписки, лимиты (5 запросов AI/день)</td></tr>
+                <tr><td>Зависимость от VK API</td><td>Резервный вход по email + паролю</td></tr>
+                <tr><td>Злоупотребления админов</td><td>Логирование выдач бесплатного доступа, уведомления основателю</td></tr>
+              </tbody>
+            </table>
+          </div>
 
-        <h3>Стратегия</h3>
-        <p class="case-quote">От чата → к платформе → к экосистеме. Сначала правила, потом монетизация, потом AI. Не наоборот.</p>
+          </div>
+        </details>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Стратегия</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <p class="case-quote">От чата → к платформе → к экосистеме. Сначала правила, потом монетизация, потом AI. Не наоборот.</p>
+          </div>
+        </details>
       </div>
     </section>
 

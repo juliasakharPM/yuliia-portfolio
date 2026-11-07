@@ -41,6 +41,7 @@
     <section class="section fade-in">
       <div class="container">
         <p class="metric-big mono"><span data-counter="1962" data-counter-suffix="%">1962%</span></p>
+        <div class="case-label mono" style="color: var(--accent); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;">Астрал · Автоматизация внутреннего чата поддержки</div>
         <h1>Окупаемость AI-решения <em>за 22 дня</em></h1>
         <p class="text-muted hero-lead">70% рутины → автоматизация. Экономия 981 324 ₽ в год.</p>
       </div>
@@ -70,84 +71,126 @@
       <div class="container">
         <h2>Бизнес-логика</h2>
 
-        <h3>Контекст</h3>
-        <p class="text-muted">B2B-сервис 1С-Отчётность. Партнёры — компании, работающие с отчётностью клиентов. Поддержка — критическая точка контакта, скорость ответа напрямую влияет на retention. Бот внедрён во внутренний технический чат поддержки партнёров.</p>
-
-        <h3>Проблема</h3>
-        <ul class="text-muted">
-          <li>70% запросов — рутина (15 минут на тикет)</li>
-          <li>Один сотрудник тратит 24 часа в неделю на повторяющиеся вопросы</li>
-          <li>Масштабирование команды = непропорциональный рост ФОТ</li>
-          <li>Эксперты выгорали → текучка → потеря компетенций → ещё больше нагрузка</li>
-        </ul>
-
-        <h3>Решение</h3>
-        <p class="text-muted">Инициировала проект AI-бота во внутреннем техническом чате. Сама посчитала unit-экономику и защитила бюджет 60 000 ₽.</p>
-        <p class="text-muted">Логика работы: сотрудник пишет вопрос по сервису 1С-Отчётность → бот отвечает, если знает решение → если не знает или уверенность низкая — зовёт эксперта через @mention → когда эксперт отвечает, бот логирует информацию для дообучения и статистики.</p>
-        <p class="text-muted">Спроектировала систему с адаптивным порогом уверенности, кэшированием и GDPR-протоколами. Заложила панель статистики для дообучения команды: система показывает темы с высоким процентом эскалаций (например, 40% по платежам) — это основа для точечного обучения. Бот дообучается на разобранных кейсах.</p>
-        <p class="text-muted">Спроектировала архитектуру с учетом Security by Design: маскирование PII-данных перед отправкой в LLM, кэширование ответов (снижение затрат на API на 30%) и протоколы автоудаления скриншотов. Защитила бюджет и минимизировала репутационные риски компании.</p>
-
-        <h3>Unit-экономика</h3>
-        <div class="metrics-accordion">
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">981 324 ₽</span> — Годовая экономия <span class="arrow">▸</span>
+        <details class="logic-accordion" open>
+          <summary class="logic-summary">
+            <h3>Контекст</h3> <span class="arrow">▾</span>
           </summary>
-          <div class="metric-text">
-            <p>Сумма, которую компания сэкономит за год на ФОТ и операционных расходах.</p>
+          <div class="logic-content">
+          <p class="text-muted">B2B-сервис 1С-Отчётность. Партнёры — компании, работающие с отчётностью клиентов. Поддержка — критическая точка контакта, скорость ответа напрямую влияет на retention. Бот внедрён во внутренний технический чат поддержки партнёров.</p>
+
           </div>
         </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">1962%</span> — ROI первого года <span class="arrow">▸</span>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Проблема</h3> <span class="arrow">▾</span>
           </summary>
-          <div class="metric-text">
-            <p>Отношение годовой экономии к затратам на проект. На каждый вложенный рубль приходится почти 20 рублей отдачи.</p>
+          <div class="logic-content">
+          <ul class="text-muted">
+            <li>70% запросов — рутина (15 минут на тикет)</li>
+            <li>Один сотрудник тратит 24 часа в неделю на повторяющиеся вопросы</li>
+            <li>Масштабирование команды = непропорциональный рост ФОТ</li>
+            <li>Эксперты выгорали → текучка → потеря компетенций → ещё больше нагрузка</li>
+          </ul>
+
           </div>
         </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">22 дня</span> — Окупаемость <span class="arrow">▸</span>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Решение</h3> <span class="arrow">▾</span>
           </summary>
-          <div class="metric-text">
-            <p>Срок, за который экономия полностью покрывает бюджет разработки — 60 000 ₽.</p>
+          <div class="logic-content">
+          <p class="text-muted">Инициировала проект AI-бота во внутреннем техническом чате. Сама посчитала unit-экономику и защитила бюджет 60 000 ₽.</p>
+          <p class="text-muted">Логика работы: сотрудник пишет вопрос по сервису 1С-Отчётность → бот отвечает, если знает решение → если не знает или уверенность низкая — зовёт эксперта через @mention → когда эксперт отвечает, бот логирует информацию для дообучения и статистики.</p>
+          <p class="text-muted">Спроектировала систему с адаптивным порогом уверенности, кэшированием и GDPR-протоколами. Заложила панель статистики для дообучения команды: система показывает темы с высоким процентом эскалаций (например, 40% по платежам) — это основа для точечного обучения. Бот дообучается на разобранных кейсах.</p>
+          <p class="text-muted">Спроектировала архитектуру с учетом Security by Design: маскирование PII-данных перед отправкой в LLM, кэширование ответов (снижение затрат на API на 30%) и протоколы автоудаления скриншотов. Защитила бюджет и минимизировала репутационные риски компании.</p>
+
           </div>
         </details>
-          <details class="metric-details">
-          <summary class="metric-summary">
-            <span class="metric-value">3 200 000 ₽</span> — Избегаемые затраты vs традиционная разработка <span class="arrow">▸</span>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Unit-экономика</h3> <span class="arrow">▾</span>
           </summary>
-          <div class="metric-text">
-            <p>Стоимость разработки аналогичного решения традиционным способом, которой удалось избежать.</p>
+          <div class="logic-content">
+          <div class="metrics-accordion">
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">981 324 ₽</span> — Годовая экономия <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Сумма, которую компания сэкономит за год на ФОТ и операционных расходах.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">1962%</span> — ROI первого года <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Отношение годовой экономии к затратам на проект. На каждый вложенный рубль приходится почти 20 рублей отдачи.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">22 дня</span> — Окупаемость <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Срок, за который экономия полностью покрывает бюджет разработки — 60 000 ₽.</p>
+            </div>
+          </details>
+            <details class="metric-details">
+            <summary class="metric-summary">
+              <span class="metric-value">3 200 000 ₽</span> — Избегаемые затраты vs традиционная разработка <span class="arrow">▸</span>
+            </summary>
+            <div class="metric-text">
+              <p>Стоимость разработки аналогичного решения традиционным способом, которой удалось избежать.</p>
+            </div>
+          </details>
+          </div>
+
           </div>
         </details>
-        </div>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Точки роста</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <ol class="text-muted">
+            <li>Расширение на другие продукты ГК Астрал</li>
+            <li>Обучение бота на эскалированных кейсах → снижение порога эскалации</li>
+            <li>Панель статистики → целевое дообучение команды</li>
+            <li>Экспорт решения как SaaS для других сервисов 1С-экосистемы</li>
+          </ol>
 
-        <h3>Точки роста</h3>
-        <ol class="text-muted">
-          <li>Расширение на другие продукты ГК Астрал</li>
-          <li>Обучение бота на эскалированных кейсах → снижение порога эскалации</li>
-          <li>Панель статистики → целевое дообучение команды</li>
-          <li>Экспорт решения как SaaS для других сервисов 1С-экосистемы</li>
-        </ol>
+          </div>
+        </details>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Риски и митигация</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <div class="risks-table">
+            <table>
+              <thead>
+                <tr><th scope="col">Риск</th><th scope="col">Митигация</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Падение точности AI</td><td>Автооткат при &lt;70%, тикет в Jira, переобучение</td></tr>
+                <tr><td>Утечка данных партнёров</td><td>GDPR: скриншоты удаляются через 24ч, эталоны — 30 дней зашифрованно</td></tr>
+                <tr><td>Зависимость от внешних API</td><td>Локальный кэш + fallback на базу знаний</td></tr>
+                <tr><td>Сопротивление команды</td><td>Позиционирование: AI забирает рутину, эксперты — на сложные кейсы</td></tr>
+              </tbody>
+            </table>
+          </div>
 
-        <h3>Риски и митигация</h3>
-        <div class="risks-table">
-          <table>
-            <thead>
-              <tr><th scope="col">Риск</th><th scope="col">Митигация</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Падение точности AI</td><td>Автооткат при &lt;70%, тикет в Jira, переобучение</td></tr>
-              <tr><td>Утечка данных партнёров</td><td>GDPR: скриншоты удаляются через 24ч, эталоны — 30 дней зашифрованно</td></tr>
-              <tr><td>Зависимость от внешних API</td><td>Локальный кэш + fallback на базу знаний</td></tr>
-              <tr><td>Сопротивление команды</td><td>Позиционирование: AI забирает рутину, эксперты — на сложные кейсы</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>Стратегия</h3>
-        <p class="case-quote">RFC-процесс развития. Все изменения документируются. Система растёт вместе с командой, модель дообучается ежемесячно на новых кейсах.</p>
+          </div>
+        </details>
+        <details class="logic-accordion">
+          <summary class="logic-summary">
+            <h3>Стратегия</h3> <span class="arrow">▾</span>
+          </summary>
+          <div class="logic-content">
+          <p class="case-quote">RFC-процесс развития. Все изменения документируются. Система растёт вместе с командой, модель дообучается ежемесячно на новых кейсах.</p>
+          </div>
+        </details>
       </div>
     </section>
 
