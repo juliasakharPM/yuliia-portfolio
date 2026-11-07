@@ -55,11 +55,11 @@ h1, h2, h3, h4 {
   color: var(--text);
 }
 
-/* Курсивные акценты (фаза 13) */
+/* Акценты: только цвет и вес, без курсива и подчёркивания */
 em, i {
   color: var(--accent);
-  font-style: italic;
-  font-family: var(--font-heading);
+  font-style: normal;
+  font-weight: 500;
 }
 h1 { font-size: 40px; }
 h2 { font-size: 32px; }
@@ -393,14 +393,11 @@ main > .section:first-child { padding-bottom: 16px; }
   margin: 0 0 16px;
 }
 
-/* Фаза 16: акцент — тонкое подчёркивание без курсива */
+/* Фаза 20: акцент без курсива и подчёркивания */
 .text-accent {
   color: var(--accent);
   font-style: normal;
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-  text-decoration-color: rgba(168, 156, 200, 0.5);
+  font-weight: 500;
 }
 
 .hero-stats {
