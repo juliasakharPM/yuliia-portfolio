@@ -152,6 +152,22 @@ main > .section:first-child { padding-bottom: 16px; }
   background-color: var(--elevated);
 }
 
+/* Подход: мягкий подъём и мятная подсветка (фаза 31) */
+.approach-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+              border-color 0.3s ease, background-color 0.3s ease;
+  border: 1px solid var(--border);
+}
+
+@media (hover: hover) {
+  .approach-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--metric) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
+                0 0 15px rgba(110, 198, 184, 0.15) !important;
+  }
+}
+
 /* --- Сетки (mobile → 1 колонка) --- */
 .grid-2, .grid-3, .grid-4 {
   display: grid;
