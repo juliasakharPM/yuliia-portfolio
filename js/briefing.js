@@ -115,7 +115,7 @@ function bfSuccessHtml() {
       '<h3 style="color: var(--accent); margin-bottom: 12px;">Принято!</h3>' +
       'Свяжусь с вами в течение 24 часов.' +
     '</div>' +
-    '<a class="btn btn--outline" href="resume.pdf" target="_blank" rel="noopener noreferrer" style="margin-top: 20px;">Скачать резюме (PDF)</a>' +
+    '<a class="btn btn--outline" href="resume.pdf" download style="margin-top: 20px;">Скачать резюме (PDF)</a>' +
   '</div>';
 }
 
@@ -214,7 +214,7 @@ function bfBuildStep(step) {
         '<p class="bf-form-error" id="bf-form-error" hidden></p>' +
         '<button type="submit" class="btn btn--primary" style="width: 100%; margin-top: 8px;">Получить видение проекта →</button>' +
       '</form>' +
-      '<a class="btn btn--outline" href="resume.pdf" target="_blank" rel="noopener noreferrer" style="margin-top: 16px;">Скачать резюме (PDF)</a>' +
+      '<a class="btn btn--outline" href="resume.pdf" download style="margin-top: 16px;">Скачать резюме (PDF)</a>' +
     '</div>';
   }
 
