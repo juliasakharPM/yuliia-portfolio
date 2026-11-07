@@ -500,15 +500,38 @@ main > .section:first-child { padding-bottom: 16px; }
 .case-card {
   display: block;
   height: 100%;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
 }
 
 .case-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
+  /* Поднятие вверх и лёгкое увеличение */
+  transform: translateY(-8px) scale(1.02);
+  /* Глубокая тень + мятное свечение (#6EC6B8) */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+              0 0 24px rgba(110, 198, 184, 0.2);
+  border-color: var(--metric);
+  z-index: 10;
 }
 
 .case-card:hover h3 { color: var(--accent); }
+
+.case-card .read-more {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.case-card:hover .read-more {
+  color: var(--metric);
+  transform: translateX(5px);
+}
 
 .case-metric {
   margin: 0 0 10px;
