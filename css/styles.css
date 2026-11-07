@@ -166,6 +166,26 @@ main > .section:first-child { padding-bottom: 16px; }
   .grid-2 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(3, 1fr); }
   .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+  /* Подход: 5 карточек — 2 колонки, последняя по центру */
+  .grid-4.approach-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .approach-grid > .card:nth-child(5) {
+    grid-column: 1 / -1;
+    width: calc(50% - 12px);
+    justify-self: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Подход: 5 карточек — 3 сверху, 2 по центру снизу */
+  .grid-4.approach-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .approach-grid > .card { grid-column: span 2; }
+  .approach-grid > .card:nth-child(4) { grid-column: 2 / span 2; }
+  .approach-grid > .card:nth-child(5) {
+    grid-column: 4 / span 2;
+    width: auto;
+    justify-self: stretch;
+  }
 }
 
 /* --- Анимации --- */
