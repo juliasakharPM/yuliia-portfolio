@@ -144,28 +144,10 @@ main > .section:first-child { padding-bottom: 16px; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 24px;
-  transition: background-color 0.2s ease, border-color 0.2s ease,
-              transform 0.2s ease;
-}
-.card:hover {
-  border-color: rgba(168, 156, 200, 0.4);
-  background-color: var(--elevated);
-}
-
-/* Подход: мягкий подъём и мятная подсветка (фаза 31) */
-.approach-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease,
-              border-color 0.3s ease, background-color 0.3s ease;
-  border: 1px solid var(--border);
-}
-
-@media (hover: hover) {
-  .approach-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--metric) !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
-                0 0 15px rgba(110, 198, 184, 0.15) !important;
-  }
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              background-color 0.4s ease;
 }
 
 /* --- Сетки (mobile → 1 колонка) --- */
@@ -521,20 +503,27 @@ main > .section:first-child { padding-bottom: 16px; }
   will-change: transform;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.4s ease !important;
+              border-color 0.4s ease,
+              background-color 0.4s ease;
 }
 
-.case-card:hover {
-  /* Поднятие вверх и лёгкое увеличение */
-  transform: translateY(-10px) scale(1.02) !important;
-  /* Глубокая тень + мятное свечение (#6EC6B8) */
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),
-              0 0 30px rgba(110, 198, 184, 0.25) !important;
-  border-color: var(--metric) !important;
-  z-index: 10;
-}
+/* Единый hover для всех карточек: кейсы + «Подход» (фаза 33) */
+@media (hover: hover) {
+  .case-card:hover,
+  .card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    background-color: var(--elevated) !important;
+    border-color: var(--metric) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
+                0 0 24px rgba(110, 198, 184, 0.2) !important;
+    z-index: 10;
+  }
 
-.case-card:hover h3 { color: var(--accent); }
+  .case-card:hover h3,
+  .card:hover h3 {
+    color: var(--metric) !important;
+  }
+}
 
 .case-card .read-more {
   display: inline-block;
