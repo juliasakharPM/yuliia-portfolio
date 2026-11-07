@@ -505,16 +505,16 @@ main > .section:first-child { padding-bottom: 16px; }
   will-change: transform;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.4s ease;
+              border-color 0.4s ease !important;
 }
 
 .case-card:hover {
   /* Поднятие вверх и лёгкое увеличение */
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-10px) scale(1.02) !important;
   /* Глубокая тень + мятное свечение (#6EC6B8) */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5),
-              0 0 24px rgba(110, 198, 184, 0.2);
-  border-color: var(--metric);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),
+              0 0 30px rgba(110, 198, 184, 0.25) !important;
+  border-color: var(--metric) !important;
   z-index: 10;
 }
 
