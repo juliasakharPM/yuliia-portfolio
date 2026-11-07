@@ -167,6 +167,64 @@ document.querySelectorAll('.case-slider-wrapper').forEach((wrapper) => {
   startAutoplay();
 });
 
+// --- Плавное раскрытие аккордеонов бизнес-логики (фаза 27) ---
+// Нативный <details> открывается рывком; анимируем height вручную.
+document.querySelectorAll('.logic-accordion').forEach((details) => {
+  const summary = details.querySelector('.logic-summary');
+  const content = details.querySelector('.logic-content');
+  if (!summary || !content) return;
+
+  let onEnd = null;
+  let fallback = null;
+
+  const cleanup = () => {
+    if (onEnd) {
+      details.removeEventListener('transitionend', onEnd);
+      onEnd = null;
+    }
+    if (fallback !== null) {
+      window.clearTimeout(fallback);
+      fallback = null;
+    }
+  };
+
+  const finish = (open) => {
+    cleanup();
+    details.open = open;
+    details.style.height = null;
+  };
+
+  summary.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const startHeight = details.getBoundingClientRect().height;
+    const willOpen = !details.open;
+
+    cleanup();
+
+    if (willOpen) {
+      details.open = true;
+      const endHeight = summary.offsetHeight + content.offsetHeight;
+      details.style.height = `${startHeight}px`;
+      details.offsetHeight; // принудительный reflow фиксирует стартовую высоту
+      details.style.height = `${endHeight}px`;
+    } else {
+      const endHeight = summary.offsetHeight;
+      details.style.height = `${startHeight}px`;
+      details.offsetHeight;
+      details.style.height = `${endHeight}px`;
+    }
+
+    onEnd = (e) => {
+      if (e.target !== details || e.propertyName !== 'height') return;
+      finish(willOpen);
+    };
+    details.addEventListener('transitionend', onEnd);
+    // Страховка, если transitionend не придёт.
+    fallback = window.setTimeout(() => finish(willOpen), 450);
+  });
+});
+
 // --- Выпадающее меню «Кейсы» (фаза 16) ---
 // Открытие по клику; закрытие по клику вне меню и по Escape.
 document.querySelectorAll('.dropdown').forEach((dropdown) => {

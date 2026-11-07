@@ -800,49 +800,56 @@
 
 /* ============================================================
 
-   Бизнес-логика — аккордеоны на <details> (фаза 26).
+   Бизнес-логика — аккордеоны на <details> (фаза 26, минимализм — фаза 27).
 
    ============================================================ */
 
 .logic-accordion {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  margin-bottom: 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  margin-bottom: 0;
   overflow: hidden;
+  transition: height 0.35s ease-in-out;
 }
 
 .logic-summary {
   display: flex;
   justify-content: space-between;
-  padding: 20px 24px;
+  align-items: center;
+  padding: 20px 0;
   cursor: pointer;
   list-style: none;
-  background: var(--elevated);
-  transition: 0.3s;
+  background: transparent;
+  transition: color 0.3s;
 }
 
-.logic-summary:hover { background: rgba(168, 156, 200, 0.1); }
+.logic-summary:hover {
+  background: transparent;
+  color: var(--accent);
+}
 
 .logic-summary::-webkit-details-marker { display: none; }
 
 .logic-summary h3 {
   margin: 0;
-  font-size: 1.4rem;
-  color: var(--text);
+  font-size: 1.5rem;
+  color: inherit;
 }
 
 .logic-summary .arrow {
   color: var(--accent);
-  transition: transform 0.3s;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
 }
 
-.logic-accordion[open] .logic-summary { border-bottom: 1px solid var(--border); }
+.logic-accordion[open] .logic-summary { border-bottom: none; }
 .logic-accordion[open] .logic-summary .arrow { transform: rotate(180deg); }
 .logic-accordion[open] .logic-summary h3 { color: var(--accent); }
 
 .logic-content {
-  padding: 24px;
+  padding: 0 0 24px;
   color: var(--text-muted);
   animation: slideFadeIn 0.3s ease-out;
 }
