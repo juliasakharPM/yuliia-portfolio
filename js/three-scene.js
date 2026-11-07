@@ -373,11 +373,16 @@ function init() {
   let dragStart = null;
   let moved = 0;
 
+  // Pointer Events работают и для мыши, и для пальцев. capture: обработчик
+  // срабатывает раньше OrbitControls и успевает отключить камеру.
   renderer.domElement.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
     moved = 0;
     dragStart = null;
     const hit = pick(e);
-    if (hit && hit.kind === 'furniture' && hit.group === selected) {
+    if (hit && hit.kind === 'furniture') {
+      // Тап по мебели сразу выбирает её и начинает перетаскивание.
+      if (hit.group !== selected) selectFurniture(hit.group);
       dragging = hit.group;
       controls.enabled = false;
       try { e.target.setPointerCapture(e.pointerId); } catch (ignore) { /* noop */ }
@@ -385,10 +390,11 @@ function init() {
         dragStart = { x: planeHit.x, z: planeHit.z, gx: dragging.position.x, gz: dragging.position.z };
       }
     }
-  });
+  }, { capture: true });
 
   renderer.domElement.addEventListener('pointermove', (e) => {
     if (!dragging) return;
+    e.preventDefault();
     moved += 1;
     if (!dragStart) return;
     setPointer(e);
@@ -401,13 +407,15 @@ function init() {
 
   let dragged = false;
 
-  renderer.domElement.addEventListener('pointerup', () => {
-    if (dragging) {
-      dragging = null;
-      dragStart = null;
-      controls.enabled = true;
-    }
-  });
+  const endDrag = () => {
+    dragging = null;
+    dragStart = null;
+    controls.enabled = true;
+  };
+
+  renderer.domElement.addEventListener('pointerup', endDrag);
+  // Прерванный жест (звонок, уход в фон) тоже отпускает предмет и камеру.
+  renderer.domElement.addEventListener('pointercancel', endDrag);
 
   // Клик по сцене: мебель → панель мебели, стена → панель стены, пустота → снять.
   renderer.domElement.addEventListener('click', (e) => {
