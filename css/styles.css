@@ -88,7 +88,7 @@ a:hover { color: var(--accent); }
   padding: 0 20px;
 }
 
-.section { padding: 60px 0; }
+.section { padding: 48px 0; }
 
 /* --- Фаза 12: пустота под цифрами hero — блок логики идёт сразу (30–40px) --- */
 main > .section:first-child { padding-bottom: 16px; }
@@ -158,7 +158,7 @@ main > .section:first-child { padding-bottom: 16px; }
 }
 
 @media (min-width: 768px) {
-  .section { padding: 100px 0; }
+  .section { padding: 76px 0; }
   main > .section:first-child { padding-bottom: 16px; }
   .grid-2, .grid-3, .grid-4 { gap: 24px; }
   .grid-2 { grid-template-columns: repeat(2, 1fr); }
@@ -499,6 +499,7 @@ main > .section:first-child { padding-bottom: 16px; }
   display: block;
   height: 100%;
   position: relative;
+  padding: 20px 22px;
   transform-style: preserve-3d;
   will-change: transform;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
@@ -529,7 +530,7 @@ main > .section:first-child { padding-bottom: 16px; }
 
 .case-card .read-more {
   display: inline-block;
-  margin-top: 16px;
+  margin-top: 12px;
   font-size: 0.9rem;
   color: var(--text-muted);
   transition: color 0.3s, transform 0.3s;
