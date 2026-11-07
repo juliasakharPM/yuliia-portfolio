@@ -67,9 +67,22 @@ if (counters.length > 0) {
   counters.forEach((el) => counterObserver.observe(el));
 }
 
-// --- Слайдеры презентаций кейсов (фаза 12) ---
+// --- Слайдеры презентаций кейсов (фаза 12, автоплей — фаза 23) ---
 // Универсально: .case-slider-wrapper → кнопки .prev/.next и .slide.
 // Активный слайд: .active; по кругу (после последнего — первый).
+// Автоплей каждые 10 с; пауза при наведении/касании и после клика по кнопке.
+
+const SLIDER_AUTOPLAY_DELAY = 10000;
+
+function nextSlide(container, direction = 1) {
+  const slides = Array.from(container.querySelectorAll('.slide'));
+  if (slides.length < 2) return;
+  const current = slides.findIndex((slide) => slide.classList.contains('active'));
+  const from = current < 0 ? 0 : current;
+  const next = (from + direction + slides.length) % slides.length;
+  slides[from].classList.remove('active');
+  slides[next].classList.add('active');
+}
 
 document.querySelectorAll('.case-slider-wrapper').forEach((wrapper) => {
   const slider = wrapper.querySelector('.case-slider');
@@ -77,24 +90,60 @@ document.querySelectorAll('.case-slider-wrapper').forEach((wrapper) => {
   const slides = Array.from(slider.querySelectorAll('.slide'));
   if (slides.length < 1) return;
 
-  let index = 0;
-
-  const show = (i) => {
-    slides.forEach((slide, n) => slide.classList.toggle('active', n === i));
-  };
-
   const prevBtn = wrapper.querySelector('.slider-btn.prev');
   const nextBtn = wrapper.querySelector('.slider-btn.next');
+  let timer = null;
+  let paused = false;
+
+  const stopAutoplay = () => {
+    if (timer !== null) {
+      clearInterval(timer);
+      timer = null;
+    }
+  };
+
+  const startAutoplay = () => {
+    stopAutoplay();
+    timer = window.setInterval(() => {
+      if (!paused && !document.hidden) nextSlide(slider, 1);
+    }, SLIDER_AUTOPLAY_DELAY);
+  };
 
   if (prevBtn) prevBtn.addEventListener('click', () => {
-    index = (index + slides.length - 1) % slides.length;
-    show(index);
+    nextSlide(slider, -1);
+    startAutoplay();
   });
 
   if (nextBtn) nextBtn.addEventListener('click', () => {
-    index = (index + 1) % slides.length;
-    show(index);
+    nextSlide(slider, 1);
+    startAutoplay();
   });
+
+  // Пауза, пока пользователь читает слайд: мышь над слайдером или палец на экране.
+  wrapper.addEventListener('mouseenter', () => {
+    paused = true;
+    stopAutoplay();
+  });
+
+  wrapper.addEventListener('mouseleave', () => {
+    paused = false;
+    startAutoplay();
+  });
+
+  wrapper.addEventListener('touchstart', () => {
+    paused = true;
+    stopAutoplay();
+  }, { passive: true });
+
+  const resumeAfterTouch = () => {
+    paused = false;
+    startAutoplay();
+  };
+
+  wrapper.addEventListener('touchend', resumeAfterTouch, { passive: true });
+  wrapper.addEventListener('touchcancel', resumeAfterTouch, { passive: true });
+
+  startAutoplay();
 });
 
 // --- Выпадающее меню «Кейсы» (фаза 16) ---
