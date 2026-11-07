@@ -519,9 +519,11 @@ main > .section:first-child { padding-bottom: 16px; }
     z-index: 10;
   }
 
+  /* Заголовок при hover — лавандовый (фаза 34), текст p не меняется */
   .case-card:hover h3,
   .card:hover h3 {
-    color: var(--metric) !important;
+    color: var(--accent) !important;
+    transition: color 0.3s ease;
   }
 }
 
