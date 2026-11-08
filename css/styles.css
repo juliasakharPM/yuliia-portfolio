@@ -622,3 +622,28 @@ main > .section:first-child { padding-bottom: 16px; }
     color: #FFFFFF;
   }
 }
+/* --- Фаза 42: видимый блок FAQ --- */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.faq-item:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.faq-item h3 {
+  font-size: 20px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.faq-item p {
+  color: var(--text-muted);
+  margin: 0;
+}

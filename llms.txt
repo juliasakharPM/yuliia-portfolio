@@ -1,0 +1,14 @@
+# Юлия Сахарова — IT Product Manager
+> Юлия Сахарова — IT Product Manager с 6-летним опытом, специализирующаяся на внедрении AI-решений (RAG) и запуске B2B/B2C продуктов с измеримым ROI.
+
+## Главные страницы:
+- [Главная](https://juliasakharpm.github.io/yuliia-portfolio/index.html)
+- [Кейс: Астрал (AI-бот, ROI 1962%)](https://juliasakharpm.github.io/yuliia-portfolio/case-astral.html)
+- [Кейс: Нейросборка (Запуск с нуля)](https://juliasakharpm.github.io/yuliia-portfolio/case-neirosborka.html)
+- [Кейс: StoryAxis (Архитектура)](https://juliasakharpm.github.io/yuliia-portfolio/case-storyaxis.html)
+- [Кейс: DesignMatrix (Концепт)](https://juliasakharpm.github.io/yuliia-portfolio/case-designmatrix.html)
+
+## Ключевые факты:
+- Роль: IT Product Manager | Product Owner.
+- Навыки: RAG, Prompt Engineering, Unit-экономика, CustDev, Agile.
+- Контакты: Telegram @JSArchitectRealite, Email juliasakhar18@gmail.com.
