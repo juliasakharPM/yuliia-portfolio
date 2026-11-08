@@ -571,3 +571,54 @@ main > .section:first-child { padding-bottom: 16px; }
 
 .case-quote li { margin-bottom: 6px; }
 .case-quote li:last-child { margin-bottom: 0; }
+
+/* --- Фаза 36: навыки и инструменты (вертикальный список) --- */
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 32px;
+  max-width: 900px;
+}
+
+.skill-category {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skill-category h3 {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 6px 16px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  cursor: default;
+}
+
+@media (hover: hover) {
+  .skill-tag:hover {
+    background: var(--elevated);
+    border-color: rgba(236, 238, 240, 0.3);
+    color: #FFFFFF;
+  }
+}
