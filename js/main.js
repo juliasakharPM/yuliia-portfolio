@@ -407,14 +407,311 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         cat.classList.add('is-awake');
 
-        // Через 5 секунд (после потягивания) кот засыпает снова.
+        // Через пару секунд (после потягивания) кот засыпает снова.
         sleepTimer = window.setTimeout(() => {
           cat.classList.remove('is-awake');
           sleepTimer = null;
-        }, 5000);
+        }, 4300);
       });
     }, { threshold: 0.5 });
 
     observer.observe(footer);
   }
+});
+
+// ============================================================
+// Фаза 62. Автодетект языка (RU/EN)
+// ============================================================
+
+const i18n = {
+  ru: {
+    nav_home: "Главная", nav_cases: "Кейсы", nav_resume: "Резюме", nav_contacts: "Контакты", nav_how_i_think: "Как я думаю",
+    mindmap_title: "Как я думаю", mindmap_subtitle: "Мой процесс", back_to_home: "← Вернуться на главную",
+    comp_strategy: "Product Strategy",
+    comp_strategy_text: `
+      <p>Спроектировала модульную архитектуру для запуска MVP силами одного человека с масштабированием в полноценную экосистему.</p>
+      <ul>
+        <li><strong>Точка входа:</strong> обучающий вебинар, который показал востребованность формата.</li>
+        <li><strong>Эволюция:</strong> от маркетингового прогрева к социально-психологическому слою.</li>
+        <li><strong>VR:</strong> заложена как финальная ступень с fallback-сценариями для пользователей без очков.</li>
+      </ul>
+      <p><strong>Вызов:</strong> остановиться в улучшениях и уложиться в дедлайны.</p>
+    `,
+    comp_ai: "AI Architecture",
+    comp_ai_text: `
+      <p>Спроектировала модуль <strong>AIOrchestrator</strong> для гибкости и отказоустойчивости.</p>
+      <ul>
+        <li><strong>Экономика:</strong> смена LLM под бюджет франчайзи (включая бесплатные лимиты).</li>
+        <li><strong>Устойчивость:</strong> при сбое одной модели подключается другая без переписывания ядра.</li>
+        <li><strong>Борьба с галлюцинациями:</strong> 3-шаговая система (создание задачи → логика микрозадач → кросс-валидация несколькими нейросетями) перед вайбкодингом.</li>
+      </ul>
+    `,
+    comp_econ: "Экономика и воронка",
+    comp_econ_text: `
+      <p>Спроектировала 4 потока монетизации для диверсификации выручки.</p>
+      <ul>
+        <li><strong>Потоки:</strong> B2C, B2B, Creator Economy (админка для авторов), партнерства с VR-производителями.</li>
+        <li><strong>Кроссплатформенность:</strong> Web, Mobile, Desktop как драйвер удержания.</li>
+        <li><strong>Стратегия:</strong> уникальные фичи для каждого девайса, чтобы стимулировать миграцию пользователей.</li>
+      </ul>
+    `,
+    comp_data: "Данные и UX",
+    comp_data_text: `
+      <p>Выстроила процессы на основе данных и адаптивного UX.</p>
+      <ul>
+        <li><strong>Психотипы:</strong> адаптация сценариев с командой психологов для безопасности пользователя.</li>
+        <li><strong>Entry Points:</strong> бесшовный переход между устройствами без потери прогресса.</li>
+        <li><strong>Аналитика:</strong> событийная модель (quest_started, choice_made) для A/B-тестов и отслеживания оттока.</li>
+      </ul>
+    `,
+    comp_security: "Безопасность",
+    comp_security_text: `
+      <p>Заложила концепцию Zero-Error UX и этическую защиту.</p>
+      <ul>
+        <li><strong>Zero-Error UX:</strong> при сбое ИИ подменяет ответ на базовый сценарий (пользователь не замечает потери качества).</li>
+        <li><strong>Деградация:</strong> 4 уровня (до режима Read-Only).</li>
+        <li><strong>Красная кнопка:</strong> мгновенный выход из травмирующих сцен для защиты психики и соответствия законодательству.</li>
+      </ul>
+    `,
+    comp_process: "Процессы",
+    comp_process_text: `
+      <p>Настроила прозрачные процессы для B2B и франчайзи.</p>
+      <ul>
+        <li><strong>Роли:</strong> строгая модель доступов (Owner / Editor / Viewer) с аудитом действий.</li>
+        <li><strong>База знаний:</strong> видеоинструкции для креаторов для снижения нагрузки на саппорт.</li>
+      </ul>
+    `
+  },
+  en: {
+    nav_home: "Home", nav_cases: "Cases", nav_resume: "Resume", nav_contacts: "Contacts", nav_how_i_think: "How I Think",
+    mindmap_title: "How I Think", mindmap_subtitle: "My Process", back_to_home: "← Back to Home",
+    comp_strategy: "Product Strategy",
+    comp_strategy_text: `
+      <p>Designed a modular architecture to launch an MVP single-handedly, scaling into a full ecosystem.</p>
+      <ul>
+        <li><strong>Entry point:</strong> an educational webinar that proved demand for the format.</li>
+        <li><strong>Evolution:</strong> from marketing warm-up to a socio-psychological layer.</li>
+        <li><strong>VR:</strong> designed as the final stage, with fallback scenarios for users without headsets.</li>
+      </ul>
+      <p><strong>Challenge:</strong> knowing when to stop improving and meeting deadlines.</p>
+    `,
+    comp_ai: "AI Architecture",
+    comp_ai_text: `
+      <p>Designed the <strong>AIOrchestrator</strong> module for flexibility and fault tolerance.</p>
+      <ul>
+        <li><strong>Economics:</strong> switching LLMs to fit the franchisee's budget (including free tiers).</li>
+        <li><strong>Resilience:</strong> if one model fails, another connects without rewriting the core.</li>
+        <li><strong>Combating hallucinations:</strong> a 3-step system (task creation → micro-task logic → cross-validation by multiple neural networks) before vibe-coding.</li>
+      </ul>
+    `,
+    comp_econ: "Economics & Funnel",
+    comp_econ_text: `
+      <p>Designed 4 monetization streams to diversify revenue.</p>
+      <ul>
+        <li><strong>Streams:</strong> B2C, B2B, Creator Economy (an admin panel for creators), partnerships with VR manufacturers.</li>
+        <li><strong>Cross-platform:</strong> Web, Mobile, Desktop as a retention driver.</li>
+        <li><strong>Strategy:</strong> unique features for each device to encourage user migration.</li>
+      </ul>
+    `,
+    comp_data: "Data & UX",
+    comp_data_text: `
+      <p>Built data-driven processes and adaptive UX.</p>
+      <ul>
+        <li><strong>Psychotypes:</strong> scenario adaptation with a team of psychologists to keep users safe.</li>
+        <li><strong>Entry Points:</strong> seamless switching between devices without losing progress.</li>
+        <li><strong>Analytics:</strong> an event model (quest_started, choice_made) for A/B testing and churn tracking.</li>
+      </ul>
+    `,
+    comp_security: "Security",
+    comp_security_text: `
+      <p>Established the Zero-Error UX concept and ethical safeguards.</p>
+      <ul>
+        <li><strong>Zero-Error UX:</strong> when AI fails, the response is replaced with a basic scenario (the user does not notice the quality drop).</li>
+        <li><strong>Degradation:</strong> 4 levels (down to Read-Only mode).</li>
+        <li><strong>Red Button:</strong> instant exit from traumatic scenes to protect mental health and comply with legislation.</li>
+      </ul>
+    `,
+    comp_process: "Processes",
+    comp_process_text: `
+      <p>Set up transparent processes for B2B and franchisees.</p>
+      <ul>
+        <li><strong>Roles:</strong> a strict access model (Owner / Editor / Viewer) with action logs.</li>
+        <li><strong>Knowledge base:</strong> video instructions for creators to reduce the support workload.</li>
+      </ul>
+    `
+  }
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const langBtn = document.getElementById('lang-switcher');
+
+  // АВТОДЕТЕКТ ЯЗЫКА
+  let savedLang = localStorage.getItem('site_lang');
+  let currentLang = savedLang;
+
+  if (!currentLang) {
+    const browserLang = (navigator.language || navigator.userLanguage).toLowerCase();
+    // Если браузер английский, ставим EN, иначе RU
+    currentLang = browserLang.startsWith('en') ? 'en' : 'ru';
+  }
+
+  function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('site_lang', lang);
+    document.documentElement.lang = lang;
+    if (langBtn) langBtn.textContent = lang === 'ru' ? 'EN' : 'RU';
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (i18n[lang] && i18n[lang][key]) el.innerHTML = i18n[lang][key];
+    });
+  }
+
+  // Делаем переключатель доступным другим скриптам (нейронный мозг).
+  window.setLanguage = setLanguage;
+  window.getSiteLanguage = () => currentLang;
+
+  if (langBtn) {
+    langBtn.addEventListener('click', () => setLanguage(currentLang === 'ru' ? 'en' : 'ru'));
+    setLanguage(currentLang); // Инициализация при загрузке
+  }
+});
+
+// ============================================================
+// Фаза 64. Нейронная карта StoryAxis: узлы, плашки, модальное окно
+// ============================================================
+
+const storyaxisData = ['strategy', 'ai', 'econ', 'data', 'security', 'process'];
+
+const nodesData = [
+  { id: 'strategy', x: 250, y: 200 }, // Верх-лево
+  { id: 'ai',       x: 550, y: 200 }, // Верх-право
+  { id: 'econ',     x: 700, y: 400 }, // Право
+  { id: 'data',     x: 550, y: 600 }, // Низ-право
+  { id: 'security', x: 250, y: 600 }, // Низ-лево
+  { id: 'process',  x: 100, y: 400 }  // Лево
+];
+
+document.addEventListener('DOMContentLoaded', () => {
+  const activeNode = document.querySelector('.brain-svg .case-node.active');
+  const connectionsLayer = document.getElementById('connections-layer');
+  const mindmapContainer = document.querySelector('.mindmap-container');
+  const brainSvg = document.querySelector('.brain-svg');
+  const modal = document.getElementById('mindmap-modal');
+  const modalTitle = document.getElementById('modal-title');
+  const modalText = document.getElementById('modal-text');
+  const closeModalBtn = document.getElementById('close-mindmap-modal');
+
+  if (!activeNode || !connectionsLayer || !mindmapContainer) return;
+
+  const getLang = () => (
+    (window.getSiteLanguage && window.getSiteLanguage()) ||
+    localStorage.getItem('site_lang') ||
+    'ru'
+  );
+
+  // --- Модальное окно ---
+  function openModal(id) {
+    if (!modal || !modalTitle || !modalText) return;
+    const lang = getLang();
+    const dict = i18n[lang] || i18n.ru;
+
+    modalTitle.textContent = dict[`comp_${id}`] || '';
+    modalText.innerHTML = dict[`comp_${id}_text`] || '';
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    if (!modal) return;
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+
+  if (modal) {
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeModal();
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal && modal.style.display === 'flex') {
+      closeModal();
+    }
+  });
+
+  // --- Позиционирование HTML-плашек поверх SVG ---
+  function positionNodeLabels() {
+    const svgRect = brainSvg.getBoundingClientRect();
+    const containerRect = mindmapContainer.getBoundingClientRect();
+
+    mindmapContainer.querySelectorAll('.mindmap-node-label').forEach((label) => {
+      const x = parseFloat(label.dataset.x);
+      const y = parseFloat(label.dataset.y);
+      const left = (svgRect.left - containerRect.left) + (x / 800) * svgRect.width;
+      const top = (svgRect.top - containerRect.top) + (y / 800) * svgRect.height;
+      label.style.left = `${left}px`;
+      label.style.top = `${top}px`;
+    });
+  }
+
+  window.addEventListener('resize', positionNodeLabels);
+
+  // --- Проращивание карты ---
+  activeNode.addEventListener('click', () => {
+    const lang = getLang();
+    const dict = i18n[lang] || i18n.ru;
+    const startX = 400;
+    const startY = 400;
+
+    connectionsLayer.innerHTML = '';
+    mindmapContainer.querySelectorAll('.mindmap-node-label').forEach((label) => label.remove());
+
+    nodesData.forEach((node, index) => {
+      // Прямая линия от центра к узлу.
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', `M ${startX} ${startY} L ${node.x} ${node.y}`);
+      path.setAttribute('class', 'neuron-path');
+      path.setAttribute('filter', 'url(#neon-glow)');
+      connectionsLayer.appendChild(path);
+
+      // Кружок-узел на конце линии.
+      const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      circle.setAttribute('cx', node.x);
+      circle.setAttribute('cy', node.y);
+      circle.setAttribute('r', '8');
+      circle.setAttribute('fill', 'var(--metric)');
+      circle.setAttribute('class', 'mindmap-node');
+      circle.setAttribute('filter', 'url(#neon-glow)');
+      circle.dataset.node = node.id;
+      circle.style.cursor = 'pointer';
+      circle.style.opacity = '0';
+      circle.addEventListener('click', () => openModal(node.id));
+      connectionsLayer.appendChild(circle);
+
+      // HTML-плашка с названием компетенции.
+      const label = document.createElement('div');
+      label.className = 'mindmap-node-label';
+      label.dataset.node = node.id;
+      label.dataset.x = node.x;
+      label.dataset.y = node.y;
+      label.dataset.i18n = `comp_${node.id}`;
+      label.textContent = dict[`comp_${node.id}`] || node.id;
+      label.addEventListener('click', () => openModal(node.id));
+      mindmapContainer.appendChild(label);
+
+      setTimeout(() => {
+        circle.style.transition = 'opacity 0.35s ease';
+        circle.style.opacity = 1;
+        label.classList.add('visible');
+      }, index * 140);
+    });
+
+    positionNodeLabels();
+    requestAnimationFrame(positionNodeLabels);
+  });
 });

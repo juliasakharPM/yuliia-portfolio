@@ -671,77 +671,60 @@ main > .section:first-child { padding-bottom: 16px; }
   color: #1A1D21 !important;
 }
 
-/* Фаза 58: спящий котик в футере — сон → пробуждение → потягивание → сон */
+/* Фаза 60: котик из присланного SVG на верхней границе футера */
 .cat-container {
   position: absolute;
-  right: 10%;
-  bottom: -10px;
-  width: 120px;
-  cursor: pointer;
+  right: 7%;
+  bottom: 100%;
+  width: 180px;
   z-index: 10;
+  transform-origin: bottom right;
+  transition: transform 0.35s ease;
+}
+
+.cat-container:hover {
+  transform: translateY(-2px) scale(1.02);
 }
 
 .sleeping-cat {
+  display: block;
   width: 100%;
   height: auto;
-  overflow: visible;
-  stroke: var(--metric);
-  transition: all 0.5s ease;
-}
-
-/* 1. Состояние сна (по умолчанию) — дыхание */
-.cat-body-back, .cat-head-group {
-  transform-origin: bottom center;
-  animation: breathe 3s infinite ease-in-out;
-}
-
-@keyframes breathe {
-  0%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(1.05) translateY(-2px); }
-}
-
-/* 2. Анимация пробуждения (срабатывает по классу .is-awake) */
-.cat-container.is-awake .cat-head-group {
-  animation: wakeUpAndStretch 4s ease-in-out forwards;
-}
-
-.cat-container.is-awake .cat-body-back {
-  animation: stretchBody 4s ease-in-out forwards;
-}
-
-.cat-container.is-awake .cat-tail {
-  animation: wagTail 0.5s infinite alternate ease-in-out;
-}
-
-@keyframes wakeUpAndStretch {
-  0% { transform: translateY(0) rotate(0deg); }
-  20% { transform: translateY(-20px) rotate(-10deg); }
-  40% { transform: translateY(-10px) rotate(0deg); }
-  60% { transform: translateY(10px) rotate(15deg); }
-  80% { transform: translateY(10px) rotate(15deg); }
-  100% { transform: translateY(0) rotate(0deg); }
-}
-
-@keyframes stretchBody {
-  0% { transform: scaleX(1) scaleY(1); }
-  60% { transform: scaleX(1.2) scaleY(0.9); }
-  80% { transform: scaleX(1.2) scaleY(0.9); }
-  100% { transform: scaleX(1) scaleY(1); }
-}
-
-@keyframes wagTail {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(15deg); }
+  color: var(--metric);
+  transition: color 0.45s ease;
+  transform-origin: 85% 100%;
+  animation: catBreathe 4s ease-in-out infinite;
 }
 
 .cat-container:hover .sleeping-cat {
-  stroke: var(--accent);
+  color: var(--accent);
+}
+
+.cat-container.is-awake .sleeping-cat {
+  animation: catWakeStretch 3.4s ease-in-out forwards;
+}
+
+/* Сон — лёгкое дыхание */
+@keyframes catBreathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-1px) scale(1.012); }
+}
+
+/* Пробуждение → потягивание → возврат ко сну */
+@keyframes catWakeStretch {
+  0% { transform: translateY(0) rotate(0deg) scale(1); }
+  15% { transform: translateY(-7px) rotate(-1.5deg) scale(1.01); }
+  35% { transform: translateY(-4px) rotate(0deg) scale(1.01); }
+  55% { transform: translateY(-2px) rotate(-3deg) scaleX(1.06) scaleY(0.95); }
+  75% { transform: translateY(-2px) rotate(-3deg) scaleX(1.06) scaleY(0.95); }
+  90% { transform: translateY(0) rotate(0deg) scale(1.005); }
+  100% { transform: translateY(0) rotate(0deg) scale(1); }
 }
 
 @media (max-width: 768px) {
   .cat-container {
-    right: 20px;
-    width: 90px;
+    right: 12px;
+    width: 130px;
   }
 }
 
@@ -799,4 +782,301 @@ main > .section:first-child { padding-bottom: 16px; }
 
 @media (max-width: 768px) {
   .search-dialog { margin: 8vh 16px 0; }
+}
+
+/* ============================================================
+   Фаза 62. Переключатель языка
+   ============================================================ */
+.lang-btn {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.lang-btn:hover { color: var(--accent) !important; }
+.lang-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ============================================================
+   Фаза 62. «Нейронный мозг» — how-i-think.html
+   ============================================================ */
+.mindmap-section {
+  padding: 24px 20px 48px;
+}
+
+.mindmap-container {
+  display: grid;
+  grid-template-columns: minmax(280px, 500px) minmax(300px, 1fr);
+  gap: 32px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.brain-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.brain-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.mindmap-hint {
+  margin: 8px 0 0;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.case-node {
+  cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+.case-node:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 15px var(--metric));
+}
+
+.case-node.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.competencies-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.comp-card {
+  padding: 14px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comp-card:hover {
+  border-color: var(--accent);
+  transform: translateX(4px);
+}
+
+.comp-card.expanded {
+  border-color: var(--accent);
+  background: var(--elevated);
+}
+
+.comp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.comp-header h3 {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.comp-header .arrow {
+  flex-shrink: 0;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.comp-card.expanded .arrow {
+  transform: rotate(180deg);
+}
+
+.comp-content {
+  max-height: 0;
+  margin-top: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+}
+
+.comp-card.expanded .comp-content {
+  max-height: 320px;
+  margin-top: 10px;
+  opacity: 1;
+}
+
+.comp-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+@media (max-width: 767px) {
+  .mindmap-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .brain-wrapper { max-width: 360px; }
+}
+
+/* ============================================================
+   Фаза 64. Плашки узлов нейронной карты
+   ============================================================ */
+.mindmap-node-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  padding: 8px 14px;
+  background: rgba(34, 38, 43, 0.8);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--metric);
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--metric);
+  white-space: nowrap;
+  opacity: 0;
+  user-select: none;
+  box-shadow: 0 0 10px rgba(110, 198, 184, 0.2);
+  transition: all 0.3s ease;
+}
+
+.mindmap-node-label.visible { opacity: 1; }
+
+.mindmap-node-label:hover {
+  background: var(--metric);
+  color: var(--bg);
+  box-shadow: 0 0 20px rgba(110, 198, 184, 0.6);
+}
+
+.mindmap-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+.mindmap-node:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 15px var(--metric));
+}
+
+.neuron-path {
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: drawLine 0.8s forwards;
+}
+
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ============================================================
+   Фаза 64. Модальное окно компетенции
+   ============================================================ */
+.mindmap-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.mindmap-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 40px;
+  background: var(--card);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.mindmap-modal-content h3 {
+  padding-right: 32px;
+  font-size: 1.75rem;
+  line-height: 1.25;
+}
+
+.mindmap-modal-content p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover { color: var(--accent); }
+
+/* Текстовое содержимое модалки: абзацы, списки, акценты */
+#modal-text p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+#modal-text ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+#modal-text li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+  position: relative;
+}
+
+#modal-text strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+#modal-text li::marker {
+  color: var(--metric);
+  font-size: 1.2em;
+}
+
+#modal-text > :last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .mindmap-node-label {
+    padding: 6px 10px;
+    font-size: 0.72rem;
+  }
+
+  .mindmap-modal-content {
+    padding: 28px 22px;
+  }
 }
