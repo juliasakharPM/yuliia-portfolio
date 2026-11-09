@@ -470,6 +470,49 @@ const i18n = {
       • <strong>Editor (Редактор):</strong> создание и редактирование контента/сценариев.<br>
       • <strong>Viewer (Зритель):</strong> только просмотр и потребление контента.<br>
       • <em>Безопасность:</em> Заложен аудит действий администраторов (Action Logs), чтобы владелец всегда видел, кто и что менял на платформе.</p>
+    `,
+    // --- DesignMatrix (dm_*) ---
+    dm_strategy: "Product Strategy",
+    dm_strategy_text: `
+      <p><strong>1. Рыночная возможность:</strong> Рынок 3D-проектирования интерьеров фрагментирован: профессиональные инструменты (3ds Max, SketchUp) дорогие и сложные, а онлайн-решения (Homestyler, Planner 5D) примитивные. Между ними — свободная ниша.</p>
+      <p><strong>2. Продуктовое видение:</strong> DesignMatrix — облачная платформа, объединяющая AI-генерацию, 3D-редактор на WebGL, встроенный маркетплейс мебели и открытый API. Связка «проектирование → покупка» закрывает разрыв, из-за которого терялась комиссия.</p>
+      <p><strong>3. Стратегия выхода:</strong> MVP за 4 месяца → полная версия за 8 месяцев → образовательный сегмент параллельно → международные рынки со второго года. Главный вызов — удержать фокус и не распылять бюджет между сегментами.</p>
+    `,
+    dm_ai: "AI Architecture",
+    dm_ai_text: `
+      <p><strong>1. AI как снижение порога входа:</strong> Генерация дизайнов по запросу позволяет частным пользователям визуализировать идеи без навыков 3D-моделирования, а дизайнерам — быстрее проходить рутину подбора материалов и визуализации.</p>
+      <p><strong>2. Технологическое ядро:</strong> 3D-редактор на WebGL с многоуровневым кэшированием и CDN, чтобы сложная сцена работала прямо в браузере. AI-слой встроен в процесс проектирования и генерации вариантов.</p>
+      <p><strong>3. Устойчивость:</strong> Зависимость от AI-провайдеров закрыта локальными моделями (Ollama) и fallback на шаблонные решения. Если внешний сервис недоступен, пользователь продолжает работу без потери сценария.</p>
+    `,
+    dm_econ: "Экономика и воронка",
+    dm_econ_text: `
+      <p><strong>1. Четыре источника дохода:</strong></p>
+      <ul>
+        <li><strong>Подписки:</strong> Базовая — 990 ₽/мес, Про — 2 990 ₽/мес, Корпоративная — от 9 900 ₽/мес.</li>
+        <li><strong>Маркетплейс:</strong> комиссия 10–15% с продаж мебели и материалов.</li>
+        <li><strong>Партнёрства:</strong> интеграции с поставщиками и реклама компаний-партнёров.</li>
+        <li><strong>Образование:</strong> лицензии для вузов 150–200K ₽/год и подписки для студентов 5–10K ₽/год.</li>
+      </ul>
+      <p><strong>2. Экономика:</strong> Бюджет разработки — 12–50 млн ₽ в зависимости от локации, окупаемость 18–24 месяца, ROI 20–25% годовых. Выручка растёт со 100–150K ₽ в первый месяц до 1–1.5 млн ₽ к двенадцатому, 10 000+ MAU через год.</p>
+      <p><strong>3. Выбор локации:</strong> Сравнила Москву, СПб, Казань и удалёнку. Оптимум — удалённая команда с ядром в регионах: 12–20 млн ₽ и окупаемость 18–24 месяца.</p>
+    `,
+    dm_data: "Данные и UX",
+    dm_data_text: `
+      <p><strong>1. Анализ рынка:</strong> Сегментировала конкурентов от профессиональных 3ds Max и SketchUp до простых онлайн-редакторов, чтобы найти свободную нишу между ценой, сложностью и функциональностью.</p>
+      <p><strong>2. Финансовая модель:</strong> Просчитала unit-экономику по сценариям: бюджет, окупаемость, ROI, выручку по месяцам и MAU. Это дало основу для решений о сроках MVP и приоритетах фич.</p>
+      <p><strong>3. Метрики продукта:</strong> Воронка от регистрации до первой сцены и покупки на маркетплейсе, удержание подписок, конверсия в платные тарифы и LTV образовательного сегмента. Данные — основа для A/B-тестов и приоритизации.</p>
+    `,
+    dm_security: "Безопасность",
+    dm_security_text: `
+      <p><strong>1. Правовые риски:</strong> Премодерация контента и лицензионные соглашения защищают платформу от нарушений авторских прав при загрузке моделей и текстур.</p>
+      <p><strong>2. Устойчивость инфраструктуры:</strong> WebGL-рендеринг усилен многоуровневым кэшированием и CDN, чтобы выдерживать нагрузку и не терять производительность на сложных сценах.</p>
+      <p><strong>3. Защита от зависимости:</strong> Fallback-сценарии на локальных моделях и шаблонах гарантируют, что сбой внешнего AI-провайдера не остановит работу пользователя.</p>
+    `,
+    dm_process: "Процессы",
+    dm_process_text: `
+      <p><strong>1. Поэтапная разработка:</strong> MVP за 4 месяца → полная версия за 8 месяцев → образовательный сегмент параллельно → международные рынки со второго года. Такой план снижает риск и позволяет проверять гипотезы на ранних этапах.</p>
+      <p><strong>2. Команда и локации:</strong> Сравнила стоимость разработки в Москве, СПб, Казани и на удалёнке. Вывод — удалённая команда с ядром в регионах даёт лучшее соотношение стоимость/качество.</p>
+      <p><strong>3. Процессы:</strong> Прозрачные этапы от анализа рынка и бизнес-логики до дизайна, 3D-пайплайна и запуска. Партнёрства с дизайн-студиями и образовательными площадками встроены в процесс привлечения.</p>
     `
   },
   en: {
@@ -518,6 +561,49 @@ const i18n = {
       • <strong>Editor:</strong> creating and editing content/scenarios.<br>
       • <strong>Viewer:</strong> view and consume content only.<br>
       • <em>Security:</em> Administrator action logs (Action Logs) are built in, so the owner always sees who changed what on the platform.</p>
+    `,
+    // --- DesignMatrix (dm_*) ---
+    dm_strategy: "Product Strategy",
+    dm_strategy_text: `
+      <p><strong>1. Market opportunity:</strong> The 3D interior design market is fragmented: professional tools (3ds Max, SketchUp) are expensive and complex, while online solutions (Homestyler, Planner 5D) are basic. Between them lies an open niche.</p>
+      <p><strong>2. Product vision:</strong> DesignMatrix is a cloud platform combining AI generation, a WebGL 3D editor, an integrated furniture marketplace and an open API. The "design → purchase" link closes the gap that caused lost commissions.</p>
+      <p><strong>3. Go-to-market strategy:</strong> MVP in 4 months → full version in 8 months → education segment in parallel → international markets from year two. The main challenge is staying focused and not spreading the budget across segments.</p>
+    `,
+    dm_ai: "AI Architecture",
+    dm_ai_text: `
+      <p><strong>1. AI as a lower entry barrier:</strong> On-demand design generation lets private users visualize ideas without 3D-modeling skills, while designers get through the routine of material selection and visualization faster.</p>
+      <p><strong>2. Technology core:</strong> A WebGL 3D editor with multi-level caching and a CDN so that complex scenes run directly in the browser. The AI layer is built into the design and variant-generation process.</p>
+      <p><strong>3. Resilience:</strong> Dependency on AI providers is covered by local models (Ollama) and fallback to template solutions. If an external service is unavailable, the user keeps working without losing the scenario.</p>
+    `,
+    dm_econ: "Economics & Funnel",
+    dm_econ_text: `
+      <p><strong>1. Four revenue streams:</strong></p>
+      <ul>
+        <li><strong>Subscriptions:</strong> Basic — 990 ₽/mo, Pro — 2 990 ₽/mo, Corporate — from 9 900 ₽/mo.</li>
+        <li><strong>Marketplace:</strong> 10–15% commission on furniture and material sales.</li>
+        <li><strong>Partnerships:</strong> integrations with suppliers and advertising from partner companies.</li>
+        <li><strong>Education:</strong> university licenses at 150–200K ₽/year and student subscriptions at 5–10K ₽/year.</li>
+      </ul>
+      <p><strong>2. Economics:</strong> Development budget — 12–50M ₽ depending on location, payback in 18–24 months, ROI of 20–25% per year. Revenue grows from 100–150K ₽ in month one to 1–1.5M ₽ by month twelve, with 10,000+ MAU within a year.</p>
+      <p><strong>3. Location choice:</strong> I compared Moscow, St. Petersburg, Kazan and remote. The optimum is a remote team with a core in the regions: 12–20M ₽ and 18–24 months payback.</p>
+    `,
+    dm_data: "Data & UX",
+    dm_data_text: `
+      <p><strong>1. Market analysis:</strong> I segmented competitors from professional 3ds Max and SketchUp to simple online editors to find an open niche between price, complexity and functionality.</p>
+      <p><strong>2. Financial model:</strong> I calculated unit economics across scenarios: budget, payback, ROI, monthly revenue and MAU. This provided the basis for decisions on MVP timing and feature priorities.</p>
+      <p><strong>3. Product metrics:</strong> The funnel from sign-up to the first scene and marketplace purchase, subscription retention, conversion to paid tiers and the LTV of the education segment. Data is the basis for A/B tests and prioritization.</p>
+    `,
+    dm_security: "Security",
+    dm_security_text: `
+      <p><strong>1. Legal risks:</strong> Content pre-moderation and licensing agreements protect the platform from copyright violations when models and textures are uploaded.</p>
+      <p><strong>2. Infrastructure resilience:</strong> WebGL rendering is reinforced with multi-level caching and a CDN to withstand load and preserve performance on complex scenes.</p>
+      <p><strong>3. Dependency protection:</strong> Fallback scenarios on local models and templates ensure that a failure of an external AI provider does not stop the user's work.</p>
+    `,
+    dm_process: "Processes",
+    dm_process_text: `
+      <p><strong>1. Phased development:</strong> MVP in 4 months → full version in 8 months → education segment in parallel → international markets from year two. This plan reduces risk and allows hypotheses to be tested early.</p>
+      <p><strong>2. Team and locations:</strong> I compared development costs in Moscow, St. Petersburg, Kazan and remote. The conclusion: a remote team with a core in the regions offers the best cost/quality ratio.</p>
+      <p><strong>3. Processes:</strong> Transparent stages from market analysis and business logic to design, the 3D pipeline and launch. Partnerships with design studios and educational platforms are built into the acquisition process.</p>
     `
   }
 };
@@ -561,19 +647,17 @@ document.addEventListener('DOMContentLoaded', () => {
 // Фаза 64. Нейронная карта StoryAxis: узлы, плашки, модальное окно
 // ============================================================
 
-const storyaxisData = ['strategy', 'ai', 'econ', 'data', 'security', 'process'];
-
 const nodesData = [
-  { id: 'strategy', x: 250, y: 200 }, // Верх-лево
-  { id: 'ai',       x: 550, y: 200 }, // Верх-право
+  { id: 'strategy', x: 200, y: 200 }, // Верх-лево
+  { id: 'ai',       x: 600, y: 200 }, // Верх-право
   { id: 'econ',     x: 700, y: 400 }, // Право
-  { id: 'data',     x: 550, y: 600 }, // Низ-право
-  { id: 'security', x: 250, y: 600 }, // Низ-лево
+  { id: 'data',     x: 600, y: 600 }, // Низ-право
+  { id: 'security', x: 200, y: 600 }, // Низ-лево
   { id: 'process',  x: 100, y: 400 }  // Лево
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-  const activeNode = document.querySelector('.brain-svg .case-node.active');
+  const activeNodes = document.querySelectorAll('.brain-svg .case-node.active');
   const connectionsLayer = document.getElementById('connections-layer');
   const mindmapContainer = document.querySelector('.mindmap-container');
   const brainSvg = document.querySelector('.brain-svg');
@@ -582,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalText = document.getElementById('modal-text');
   const closeModalBtn = document.getElementById('close-mindmap-modal');
 
-  if (!activeNode || !connectionsLayer || !mindmapContainer) return;
+  if (!activeNodes.length || !connectionsLayer || !mindmapContainer) return;
 
   const getLang = () => (
     (window.getSiteLanguage && window.getSiteLanguage()) ||
@@ -591,13 +675,14 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   // --- Модальное окно ---
-  function openModal(id) {
+  function openModal(prefix, id) {
     if (!modal || !modalTitle || !modalText) return;
     const lang = getLang();
     const dict = i18n[lang] || i18n.ru;
+    const key = `${prefix}${id}`;
 
-    modalTitle.textContent = dict[`comp_${id}`] || '';
-    modalText.innerHTML = dict[`comp_${id}_text`] || '';
+    modalTitle.textContent = dict[key] || '';
+    modalText.innerHTML = dict[`${key}_text`] || '';
     modal.style.display = 'flex';
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -641,18 +726,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('resize', positionNodeLabels);
 
-  // --- Проращивание карты ---
-  activeNode.addEventListener('click', () => {
+  // --- Проращивание карты выбранного кейса ---
+  function growNetwork(caseNode) {
+    const caseType = caseNode.getAttribute('data-case');
+    // StoryAxis использует ключи comp_*, DesignMatrix — dm_*.
+    const prefix = caseType === 'storyaxis' ? 'comp_' : 'dm_';
+    const startX = parseFloat(caseNode.getAttribute('cx'));
+    const startY = parseFloat(caseNode.getAttribute('cy'));
     const lang = getLang();
     const dict = i18n[lang] || i18n.ru;
-    const startX = 400;
-    const startY = 400;
 
     connectionsLayer.innerHTML = '';
     mindmapContainer.querySelectorAll('.mindmap-node-label').forEach((label) => label.remove());
 
     nodesData.forEach((node, index) => {
-      // Прямая линия от центра к узлу.
+      // Прямая линия от выбранной точки к узлу.
       const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       path.setAttribute('d', `M ${startX} ${startY} L ${node.x} ${node.y}`);
       path.setAttribute('class', 'neuron-path');
@@ -663,35 +751,43 @@ document.addEventListener('DOMContentLoaded', () => {
       const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
       circle.setAttribute('cx', node.x);
       circle.setAttribute('cy', node.y);
-      circle.setAttribute('r', '8');
+      circle.setAttribute('r', '6');
       circle.setAttribute('fill', 'var(--metric)');
-      circle.setAttribute('class', 'mindmap-node');
+      circle.setAttribute('class', 'mindmap-node mindmap-node-point');
       circle.setAttribute('filter', 'url(#neon-glow)');
       circle.dataset.node = node.id;
+      circle.dataset.case = caseType;
       circle.style.cursor = 'pointer';
       circle.style.opacity = '0';
-      circle.addEventListener('click', () => openModal(node.id));
+      circle.addEventListener('click', () => openModal(prefix, node.id));
       connectionsLayer.appendChild(circle);
 
       // HTML-плашка с названием компетенции.
       const label = document.createElement('div');
       label.className = 'mindmap-node-label';
       label.dataset.node = node.id;
+      label.dataset.case = caseType;
       label.dataset.x = node.x;
       label.dataset.y = node.y;
-      label.dataset.i18n = `comp_${node.id}`;
-      label.textContent = dict[`comp_${node.id}`] || node.id;
-      label.addEventListener('click', () => openModal(node.id));
+      label.dataset.i18n = `${prefix}${node.id}`;
+      label.textContent = dict[`${prefix}${node.id}`] || node.id;
+      label.addEventListener('click', () => openModal(prefix, node.id));
       mindmapContainer.appendChild(label);
 
       setTimeout(() => {
+        path.style.transition = 'stroke-dashoffset 0.8s ease-out';
+        path.style.strokeDashoffset = 0;
         circle.style.transition = 'opacity 0.35s ease';
         circle.style.opacity = 1;
         label.classList.add('visible');
-      }, index * 140);
+      }, index * 100);
     });
 
     positionNodeLabels();
     requestAnimationFrame(positionNodeLabels);
+  }
+
+  activeNodes.forEach((node) => {
+    node.addEventListener('click', () => growNetwork(node));
   });
 });

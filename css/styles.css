@@ -970,40 +970,43 @@ main > .section:first-child { padding-bottom: 16px; }
 .mindmap-node-label {
   position: absolute;
   transform: translate(-50%, -50%);
-  z-index: 2;
-  padding: 8px 14px;
-  background: rgba(34, 38, 43, 0.8);
+  z-index: 10;
+  padding: 6px 12px;
+  background: rgba(34, 38, 43, 0.9);
   backdrop-filter: blur(4px);
-  border: 1px solid var(--metric);
+  border: 1px solid var(--border);
   border-radius: 20px;
   cursor: pointer;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--metric);
   white-space: nowrap;
   opacity: 0;
   user-select: none;
-  box-shadow: 0 0 10px rgba(110, 198, 184, 0.2);
-  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(110, 198, 184, 0.15);
+  transition: opacity 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .mindmap-node-label.visible { opacity: 1; }
 
 .mindmap-node-label:hover {
-  background: var(--metric);
-  color: var(--bg);
-  box-shadow: 0 0 20px rgba(110, 198, 184, 0.6);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 18px rgba(168, 156, 200, 0.35);
 }
 
-.mindmap-node {
+.mindmap-node,
+.mindmap-node-point {
   transform-box: fill-box;
   transform-origin: center;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, fill 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
 }
 
-.mindmap-node:hover {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 15px var(--metric));
+.mindmap-node:hover,
+.mindmap-node-point:hover {
+  fill: var(--accent);
+  transform: scale(1.25);
+  filter: drop-shadow(0 0 15px var(--accent));
 }
 
 .neuron-path {
