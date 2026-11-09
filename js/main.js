@@ -429,57 +429,46 @@ const i18n = {
     mindmap_title: "Как я думаю", mindmap_subtitle: "Мой процесс", back_to_home: "← Вернуться на главную",
     comp_strategy: "Product Strategy",
     comp_strategy_text: `
-      <p>Спроектировала модульную архитектуру для запуска MVP силами одного человека с масштабированием в полноценную экосистему.</p>
-      <ul>
-        <li><strong>Точка входа:</strong> обучающий вебинар, который показал востребованность формата.</li>
-        <li><strong>Эволюция:</strong> от маркетингового прогрева к социально-психологическому слою.</li>
-        <li><strong>VR:</strong> заложена как финальная ступень с fallback-сценариями для пользователей без очков.</li>
-      </ul>
-      <p><strong>Вызов:</strong> остановиться в улучшениях и уложиться в дедлайны.</p>
+      <p><strong>1. Точка входа (Инсайт):</strong> Идея нейроквестов родилась на обучающем вебинаре. Увидев восторженные отзывы пользователей, я поняла, что этот формат можно масштабировать.</p>
+      <p><strong>2. Эволюция видения:</strong> Изначально я рассматривала продукт как маркетинговый инструмент (прогрев к покупке или концерту). Позже добавился социально-психологический слой. Ключевое осознание: мозгу не важно, играете вы или проживаете опыт в реальности. VR стал логичной финальной ступенью, но я сразу заложила fallback-сценарии для пользователей без VR-очков.</p>
+      <p><strong>3. Декомпозиция и «Система нулевых ошибок»:</strong> ИИ дал оценку, что в одиночку разработать такой продукт нереально. Я приняла это как вызов: декомпозировала задачу и спроектировала модульную архитектуру. План: запуск MVP своими силами → помодульная пересборка с фрилансерами. Принцип «системы нулевых ошибок» родился из реалий: нейросети склонны «мусорить» в коде, плюс существуют риски хакерских атак. Для меня критично сохранить идеальный UX: любая техническая ошибка разрушает магию квеста.</p>
+      <p><strong>4. Главный вызов:</strong> Самым сложным было остановиться в улучшениях — постоянно хотелось добавить больше фич. Второй барьер — отсутствие времени на самостоятельную реализацию MVP.</p>
     `,
     comp_ai: "AI Architecture",
     comp_ai_text: `
-      <p>Спроектировала модуль <strong>AIOrchestrator</strong> для гибкости и отказоустойчивости.</p>
-      <ul>
-        <li><strong>Экономика:</strong> смена LLM под бюджет франчайзи (включая бесплатные лимиты).</li>
-        <li><strong>Устойчивость:</strong> при сбое одной модели подключается другая без переписывания ядра.</li>
-        <li><strong>Борьба с галлюцинациями:</strong> 3-шаговая система (создание задачи → логика микрозадач → кросс-валидация несколькими нейросетями) перед вайбкодингом.</li>
-      </ul>
+      <p><strong>1. Гибкость и экономика (AIOrchestrator):</strong> Смена LLM (от OpenAI до локальных моделей) была спроектирована не просто так. Пользователи (включая франчайзи) должны иметь возможность подобрать модель под свой бюджет — от более качественных и дорогих до дешевых/бесплатных в рамках лимитов. Это экономически эффективно. С точки зрения UX: если одна нейросеть перестает работать, я просто подключаю другую модель без переписывания ядра.</p>
+      <p><strong>2. Борьба с галлюцинациями в коде:</strong> Главным вызовом стало то, что я не пишу код сама. Самое сложное — отследить галлюцинации ИИ при генерации. Я заложила в архитектуру возможность помодульной переписки: если нейросеть сгенерировала нестабильный код, модуль можно изолировать и переписать с нуля, не ломая всю систему.</p>
+      <p><strong>3. Архитектура промптинга (3 шага):</strong> Для минимизации мусора в коде я выстроила жесткую систему:<br>
+      1. Создание задачи.<br>
+      2. Отслеживание логики микрозадач.<br>
+      3. Анализ одной и той же задачи несколькими нейросетями (кросс-валидация), проверка и доработка.<br>
+      И только после этой цепочки — этап вайбкодинга.</p>
     `,
     comp_econ: "Экономика и воронка",
     comp_econ_text: `
-      <p>Спроектировала 4 потока монетизации для диверсификации выручки.</p>
-      <ul>
-        <li><strong>Потоки:</strong> B2C, B2B, Creator Economy (админка для авторов), партнерства с VR-производителями.</li>
-        <li><strong>Кроссплатформенность:</strong> Web, Mobile, Desktop как драйвер удержания.</li>
-        <li><strong>Стратегия:</strong> уникальные фичи для каждого девайса, чтобы стимулировать миграцию пользователей.</li>
-      </ul>
+      <p><strong>1. Стратегия монетизации (от B2C к экосистеме):</strong> Путь начался с B2C-сегмента. Затем я искала способы извлечь больше прибыли и расширила воронку на B2B (как логичное продолжение). Следующим шагом стало открытие админки для других авторов (Creator Economy). Моя логика проста: чем выше экономическая выгода проекта, тем больше фич и ценности я смогу в него внедрить. Также прорабатывала партнерства с производителями VR и смежными сегментами рынка.</p>
+      <p><strong>2. Кросс-платформенность как драйвер удержания:</strong> Изначально кроссплатформенность была ценностью для блогеров и инфлюенсеров, которым нужно «перетаскивать» аудиторию за собой. Позже я сместила фокус на удобство обычных пользователей: не все друзья сидят в одной соцсети.</p>
+      <p><strong>3. Экосистемная воронка:</strong> Архитектура предусматривает Web, Mobile и Desktop версии. Долгосрочная стратегия — дать каждому пространству свою уникальную фичу, чтобы пользователю было <em>интересно</em> переключаться между платформами, а не просто <em>вынужденно</em> мигрировать.</p>
     `,
     comp_data: "Данные и UX",
     comp_data_text: `
-      <p>Выстроила процессы на основе данных и адаптивного UX.</p>
-      <ul>
-        <li><strong>Психотипы:</strong> адаптация сценариев с командой психологов для безопасности пользователя.</li>
-        <li><strong>Entry Points:</strong> бесшовный переход между устройствами без потери прогресса.</li>
-        <li><strong>Аналитика:</strong> событийная модель (quest_started, choice_made) для A/B-тестов и отслеживания оттока.</li>
-      </ul>
+      <p><strong>1. CustDev и психотипы пользователей:</strong> Я понимала, что к моменту выхода продукта рынок может перенасытиться однотипными ИИ-новеллами. Моей целью было создать адаптивный сценарий, который подстраивается под пользователя. Это усиливало эффект как в маркетинговых квестах, так и в развлекательных играх. Опыт должен быть максимально приближен к реальности. Для этого планировалась разработка сценариев совместно с командой психологов — чтобы исключить любой вред для ментального здоровья пользователей.</p>
+      <p><strong>2. Архитектура Entry Points (Точек входа):</strong> Если человек играет в квест и хочет сменить устройство (например, с телефона на ПК), зачем ему начинать заново и проходить все шаги с нуля? Это ломает опыт. Поэтому я заложила архитектуру Entry Points. Это логичное развитие в сторону мощного, персонализированного опыта, который не привязан к одному гаджету.</p>
+      <p><strong>3. Событийная модель и A/B-тесты:</strong> Возможность заходить с любого шага (через deep-links) дает нам инфраструктуру для запуска A/B-тестов гипотез и демо-версий без изменения ядра кода. Плюс заложена событийная модель трекинга (<code>quest_started</code>, <code>choice_made</code> и т.д.) для отслеживания воронки и точек оттока.</p>
     `,
     comp_security: "Безопасность",
     comp_security_text: `
-      <p>Заложила концепцию Zero-Error UX и этическую защиту.</p>
-      <ul>
-        <li><strong>Zero-Error UX:</strong> при сбое ИИ подменяет ответ на базовый сценарий (пользователь не замечает потери качества).</li>
-        <li><strong>Деградация:</strong> 4 уровня (до режима Read-Only).</li>
-        <li><strong>Красная кнопка:</strong> мгновенный выход из травмирующих сцен для защиты психики и соответствия законодательству.</li>
-      </ul>
+      <p><strong>1. 4 уровня деградации (Zero-Error UX):</strong> Мне было критически важно создать «систему нулевых ошибок»: пользователь не должен знать, что что-то сломалось. При сбое он получал «оболочку» в виде базового сценария, разработанного с учетом психотипов. Мы сознательно шли на небольшое ухудшение качества (снижение персонализации), но человек не замечал подмены и не выпадал из иммерсивного опыта. В это же время сигнал об ошибке мгновенно поступал мне как владельцу продукта для оперативного исправления.</p>
+      <p><strong>2. Этическая защита («Красная кнопка»):</strong> Эта идея продумывалась как защита пользователей и соблюдение законодательных норм. Человек может в любой момент выйти из пугающей или травмирующей сцены и продолжить игру без вреда для психики. Это гарантирует, что продукт не нанесет эмоционального ущерба.</p>
     `,
     comp_process: "Процессы",
     comp_process_text: `
-      <p>Настроила прозрачные процессы для B2B и франчайзи.</p>
-      <ul>
-        <li><strong>Роли:</strong> строгая модель доступов (Owner / Editor / Viewer) с аудитом действий.</li>
-        <li><strong>База знаний:</strong> видеоинструкции для креаторов для снижения нагрузки на саппорт.</li>
-      </ul>
+      <p><strong>1. База знаний и снижение нагрузки на саппорт:</strong> Для сложной платформы требовалась подробная документация. Я инициировала создание базы знаний с пошаговыми видеоинструкциями. Это решало две задачи: креаторы могли самостоятельно и быстро обучиться работе с платформой, а нагрузка на техническую поддержку снижалась за счет понятных гайдов.</p>
+      <p><strong>2. Ролевая модель и аудит (Governance):</strong> Для работы с B2B-клиентами и франчайзи я спроектировала строгую систему разграничения прав доступа:<br>
+      • <strong>Owner (Владелец):</strong> полный доступ, управление биллингом и настройками.<br>
+      • <strong>Editor (Редактор):</strong> создание и редактирование контента/сценариев.<br>
+      • <strong>Viewer (Зритель):</strong> только просмотр и потребление контента.<br>
+      • <em>Безопасность:</em> Заложен аудит действий администраторов (Action Logs), чтобы владелец всегда видел, кто и что менял на платформе.</p>
     `
   },
   en: {
@@ -487,57 +476,46 @@ const i18n = {
     mindmap_title: "How I Think", mindmap_subtitle: "My Process", back_to_home: "← Back to Home",
     comp_strategy: "Product Strategy",
     comp_strategy_text: `
-      <p>Designed a modular architecture to launch an MVP single-handedly, scaling into a full ecosystem.</p>
-      <ul>
-        <li><strong>Entry point:</strong> an educational webinar that proved demand for the format.</li>
-        <li><strong>Evolution:</strong> from marketing warm-up to a socio-psychological layer.</li>
-        <li><strong>VR:</strong> designed as the final stage, with fallback scenarios for users without headsets.</li>
-      </ul>
-      <p><strong>Challenge:</strong> knowing when to stop improving and meeting deadlines.</p>
+      <p><strong>1. Entry point (Insight):</strong> The idea of neuro-quests was born at an educational webinar. Seeing enthusiastic user reviews, I realized the format could be scaled.</p>
+      <p><strong>2. Evolution of the vision:</strong> Initially I saw the product as a marketing tool (warming up for a purchase or a concert). Later a socio-psychological layer was added. The key realization: the brain doesn't care whether you are playing or living an experience in reality. VR became the logical final stage, but I immediately built in fallback scenarios for users without VR headsets.</p>
+      <p><strong>3. Decomposition and the "zero-error system":</strong> AI estimated that building such a product solo was unrealistic. I took it as a challenge: decomposed the task and designed a modular architecture. The plan: launch an MVP on my own → rebuild module by module with freelancers. The "zero-error system" principle was born from reality: neural networks tend to "litter" code, plus there are hacker attack risks. For me it is critical to preserve a perfect UX: any technical error destroys the magic of the quest.</p>
+      <p><strong>4. Main challenge:</strong> The hardest part was to stop improving — I constantly wanted to add more features. The second barrier was the lack of time to implement the MVP myself.</p>
     `,
     comp_ai: "AI Architecture",
     comp_ai_text: `
-      <p>Designed the <strong>AIOrchestrator</strong> module for flexibility and fault tolerance.</p>
-      <ul>
-        <li><strong>Economics:</strong> switching LLMs to fit the franchisee's budget (including free tiers).</li>
-        <li><strong>Resilience:</strong> if one model fails, another connects without rewriting the core.</li>
-        <li><strong>Combating hallucinations:</strong> a 3-step system (task creation → micro-task logic → cross-validation by multiple neural networks) before vibe-coding.</li>
-      </ul>
+      <p><strong>1. Flexibility and economics (AIOrchestrator):</strong> Switching LLMs (from OpenAI to local models) was designed for a reason. Users (including franchisees) must be able to choose a model that fits their budget — from higher-quality and more expensive to cheap/free within limits. This is cost-effective. From a UX perspective: if one neural network stops working, I simply connect another model without rewriting the core.</p>
+      <p><strong>2. Combating code hallucinations:</strong> The main challenge was that I do not write code myself. The hardest part is tracking AI hallucinations during generation. I built module-level rewritability into the architecture: if a neural network generates unstable code, the module can be isolated and rewritten from scratch without breaking the whole system.</p>
+      <p><strong>3. Prompting architecture (3 steps):</strong> To minimize code garbage, I built a strict system:<br>
+      1. Task creation.<br>
+      2. Tracking the logic of micro-tasks.<br>
+      3. Analyzing the same task with several neural networks (cross-validation), checking and refining.<br>
+      And only after this chain — the vibe-coding stage.</p>
     `,
     comp_econ: "Economics & Funnel",
     comp_econ_text: `
-      <p>Designed 4 monetization streams to diversify revenue.</p>
-      <ul>
-        <li><strong>Streams:</strong> B2C, B2B, Creator Economy (an admin panel for creators), partnerships with VR manufacturers.</li>
-        <li><strong>Cross-platform:</strong> Web, Mobile, Desktop as a retention driver.</li>
-        <li><strong>Strategy:</strong> unique features for each device to encourage user migration.</li>
-      </ul>
+      <p><strong>1. Monetization strategy (from B2C to an ecosystem):</strong> The journey started with the B2C segment. Then I looked for ways to extract more profit and expanded the funnel to B2B (as a logical continuation). The next step was opening an admin panel for other creators (Creator Economy). My logic is simple: the higher the project's economic benefit, the more features and value I can bring into it. I also explored partnerships with VR manufacturers and adjacent market segments.</p>
+      <p><strong>2. Cross-platform as a retention driver:</strong> Initially cross-platform was valuable for bloggers and influencers who need to "pull" their audience along. Later I shifted the focus to convenience for regular users: not all friends are on the same social network.</p>
+      <p><strong>3. Ecosystem funnel:</strong> The architecture provides for Web, Mobile and Desktop versions. The long-term strategy is to give each space its own unique feature so that users are <em>interested</em> in switching between platforms, rather than <em>forced</em> to migrate.</p>
     `,
     comp_data: "Data & UX",
     comp_data_text: `
-      <p>Built data-driven processes and adaptive UX.</p>
-      <ul>
-        <li><strong>Psychotypes:</strong> scenario adaptation with a team of psychologists to keep users safe.</li>
-        <li><strong>Entry Points:</strong> seamless switching between devices without losing progress.</li>
-        <li><strong>Analytics:</strong> an event model (quest_started, choice_made) for A/B testing and churn tracking.</li>
-      </ul>
+      <p><strong>1. CustDev and user psychotypes:</strong> I understood that by the time the product launched, the market might be saturated with look-alike AI novels. My goal was to create an adaptive scenario that adjusts to the user. This strengthened the effect both in marketing quests and in entertainment games. The experience should be as close to reality as possible. To achieve this, scenario development was planned together with a team of psychologists — to exclude any harm to users' mental health.</p>
+      <p><strong>2. Entry Points architecture:</strong> If a person is playing a quest and wants to change devices (for example, from a phone to a PC), why should they start over and go through all the steps again? That breaks the experience. So I built the Entry Points architecture. It is a logical step toward a powerful, personalized experience that is not tied to a single gadget.</p>
+      <p><strong>3. Event model and A/B tests:</strong> The ability to enter from any step (via deep links) gives us the infrastructure to run A/B tests of hypotheses and demo versions without changing the code core. An event tracking model is also built in (<code>quest_started</code>, <code>choice_made</code>, etc.) to track the funnel and churn points.</p>
     `,
     comp_security: "Security",
     comp_security_text: `
-      <p>Established the Zero-Error UX concept and ethical safeguards.</p>
-      <ul>
-        <li><strong>Zero-Error UX:</strong> when AI fails, the response is replaced with a basic scenario (the user does not notice the quality drop).</li>
-        <li><strong>Degradation:</strong> 4 levels (down to Read-Only mode).</li>
-        <li><strong>Red Button:</strong> instant exit from traumatic scenes to protect mental health and comply with legislation.</li>
-      </ul>
+      <p><strong>1. 4 levels of degradation (Zero-Error UX):</strong> It was critical for me to create a "zero-error system": the user should not know that something broke. On failure, they received a "shell" in the form of a basic scenario designed with psychotypes in mind. We deliberately accepted a slight quality drop (reduced personalization), but the person did not notice the substitution and did not fall out of the immersive experience. At the same time, an error signal was instantly sent to me as the product owner for prompt fixing.</p>
+      <p><strong>2. Ethical protection ("Red Button"):</strong> This idea was designed as user protection and compliance with legal norms. A person can exit a frightening or traumatic scene at any moment and continue the game without harm to their mental health. This ensures the product will not cause emotional damage.</p>
     `,
     comp_process: "Processes",
     comp_process_text: `
-      <p>Set up transparent processes for B2B and franchisees.</p>
-      <ul>
-        <li><strong>Roles:</strong> a strict access model (Owner / Editor / Viewer) with action logs.</li>
-        <li><strong>Knowledge base:</strong> video instructions for creators to reduce the support workload.</li>
-      </ul>
+      <p><strong>1. Knowledge base and reduced support workload:</strong> A complex platform required detailed documentation. I initiated the creation of a knowledge base with step-by-step video instructions. This solved two problems: creators could learn the platform independently and quickly, and the technical support workload decreased thanks to clear guides.</p>
+      <p><strong>2. Role model and audit (Governance):</strong> To work with B2B clients and franchisees, I designed a strict access-control system:<br>
+      • <strong>Owner:</strong> full access, billing and settings management.<br>
+      • <strong>Editor:</strong> creating and editing content/scenarios.<br>
+      • <strong>Viewer:</strong> view and consume content only.<br>
+      • <em>Security:</em> Administrator action logs (Action Logs) are built in, so the owner always sees who changed what on the platform.</p>
     `
   }
 };

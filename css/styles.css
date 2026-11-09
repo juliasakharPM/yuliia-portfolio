@@ -1066,6 +1066,15 @@ main > .section:first-child { padding-bottom: 16px; }
   font-size: 1.2em;
 }
 
+#modal-text code {
+  padding: 2px 6px;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--metric);
+  background: rgba(110, 198, 184, 0.1);
+  border-radius: 4px;
+}
+
 #modal-text > :last-child {
   margin-bottom: 0;
 }
