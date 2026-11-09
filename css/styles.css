@@ -671,37 +671,77 @@ main > .section:first-child { padding-bottom: 16px; }
   color: #1A1D21 !important;
 }
 
-/* Фаза 55: котик сидит на линии border-top над аватаром, прижат к правому краю */
-.footer-cat-sitting {
+/* Фаза 58: спящий котик в футере — сон → пробуждение → потягивание → сон */
+.cat-container {
   position: absolute;
   right: 10%;
-  top: -25px;
-  color: var(--text-muted);
-  background-color: var(--bg);
-  padding: 0 10px;
+  bottom: -10px;
+  width: 120px;
   cursor: pointer;
-  transition: color 0.4s ease, transform 0.4s ease;
-  animation: catColorPulse 4s infinite alternate, catFloat 3s ease-in-out infinite;
   z-index: 10;
 }
 
-.footer-cat-sitting:hover {
-  color: var(--metric);
-  transform: scale(1.2) translateY(-5px);
-  animation-play-state: paused;
+.sleeping-cat {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  stroke: var(--metric);
+  transition: all 0.5s ease;
 }
 
-.cat-tail { transform-origin: 16px 18px; animation: catWag 1.5s infinite ease-in-out; }
-@keyframes catWag { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(20deg); } }
-@keyframes catColorPulse { 0% { color: var(--text-muted); } 100% { color: var(--accent); } }
-@keyframes catFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+/* 1. Состояние сна (по умолчанию) — дыхание */
+.cat-body-back, .cat-head-group {
+  transform-origin: bottom center;
+  animation: breathe 3s infinite ease-in-out;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.05) translateY(-2px); }
+}
+
+/* 2. Анимация пробуждения (срабатывает по классу .is-awake) */
+.cat-container.is-awake .cat-head-group {
+  animation: wakeUpAndStretch 4s ease-in-out forwards;
+}
+
+.cat-container.is-awake .cat-body-back {
+  animation: stretchBody 4s ease-in-out forwards;
+}
+
+.cat-container.is-awake .cat-tail {
+  animation: wagTail 0.5s infinite alternate ease-in-out;
+}
+
+@keyframes wakeUpAndStretch {
+  0% { transform: translateY(0) rotate(0deg); }
+  20% { transform: translateY(-20px) rotate(-10deg); }
+  40% { transform: translateY(-10px) rotate(0deg); }
+  60% { transform: translateY(10px) rotate(15deg); }
+  80% { transform: translateY(10px) rotate(15deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes stretchBody {
+  0% { transform: scaleX(1) scaleY(1); }
+  60% { transform: scaleX(1.2) scaleY(0.9); }
+  80% { transform: scaleX(1.2) scaleY(0.9); }
+  100% { transform: scaleX(1) scaleY(1); }
+}
+
+@keyframes wagTail {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(15deg); }
+}
+
+.cat-container:hover .sleeping-cat {
+  stroke: var(--accent);
+}
 
 @media (max-width: 768px) {
-  .footer-cat-sitting {
+  .cat-container {
     right: 20px;
-    top: -20px;
-    width: 40px;
-    height: 40px;
+    width: 90px;
   }
 }
 

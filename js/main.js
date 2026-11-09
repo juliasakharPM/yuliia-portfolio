@@ -387,3 +387,34 @@ document.addEventListener('keydown', (event) => {
     closeSearch();
   }
 });
+
+// --- Котик в футере: сон → пробуждение → потягивание → сон (фаза 58) ---
+document.addEventListener('DOMContentLoaded', () => {
+  const cat = document.querySelector('.cat-container');
+  const footer = document.querySelector('footer');
+
+  if (cat && footer) {
+    let sleepTimer = null;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        // Футер в зоне видимости — будим кота.
+        if (sleepTimer !== null) {
+          window.clearTimeout(sleepTimer);
+          sleepTimer = null;
+        }
+        cat.classList.add('is-awake');
+
+        // Через 5 секунд (после потягивания) кот засыпает снова.
+        sleepTimer = window.setTimeout(() => {
+          cat.classList.remove('is-awake');
+          sleepTimer = null;
+        }, 5000);
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(footer);
+  }
+});
