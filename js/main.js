@@ -255,3 +255,135 @@ document.querySelectorAll('.dropdown').forEach((dropdown) => {
     if (event.key === 'Escape') close();
   });
 });
+
+// --- Магнитные кнопки (фаза 53) ---
+// Только на десктопе с точным указателем и шириной больше 768px.
+const magneticQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+if (magneticQuery.matches && window.innerWidth > 768) {
+  document.querySelectorAll('.btn').forEach((btn) => {
+    btn.addEventListener('mousemove', (event) => {
+      const rect = btn.getBoundingClientRect();
+      const x = event.clientX - rect.left - rect.width / 2;
+      const y = event.clientY - rect.top - rect.height / 2;
+      if (Math.abs(x) < rect.width / 2 && Math.abs(y) < rect.height / 2) {
+        btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+      }
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translate(0, 0)';
+    });
+  });
+}
+
+// --- Глобальный поиск Cmd/Ctrl+K (фаза 53) ---
+const searchData = [
+  { title: 'Кейс Астрал (AI-бот)', url: 'case-astral.html', keywords: 'астрал ai бот поддержка 1962' },
+  { title: 'Кейс Нейросборка', url: 'case-neirosborka.html', keywords: 'нейросборка комьюнити rag' },
+  { title: 'Кейс StoryAxis', url: 'case-storyaxis.html', keywords: 'стори квесты платформа' },
+  { title: 'Кейс DesignMatrix', url: 'case-designmatrix.html', keywords: 'дизайн 3d интерьер' },
+  { title: 'Как я думаю', url: 'how-i-think.html', keywords: 'процесс мышление подход' }
+];
+
+const searchModal = document.getElementById('search-modal');
+const searchInput = document.getElementById('search-input');
+const searchResults = document.getElementById('search-results');
+const searchOpeners = document.querySelectorAll('[data-search-open]');
+const searchClosers = document.querySelectorAll('[data-search-close]');
+
+let searchActiveIndex = -1;
+
+function searchNorm(value) {
+  return (value || '').toLowerCase().trim();
+}
+
+function renderSearchResults(query) {
+  if (!searchResults) return;
+  const q = searchNorm(query);
+  const matches = q
+    ? searchData.filter((item) => searchNorm(item.title).includes(q) || searchNorm(item.keywords).includes(q))
+    : searchData;
+
+  searchResults.innerHTML = '';
+  searchActiveIndex = -1;
+
+  if (matches.length === 0) {
+    const empty = document.createElement('li');
+    empty.className = 'search-empty';
+    empty.textContent = 'Ничего не найдено';
+    searchResults.appendChild(empty);
+    return;
+  }
+
+  matches.forEach((item) => {
+    const li = document.createElement('li');
+    const link = document.createElement('a');
+    link.href = item.url;
+    link.textContent = item.title;
+    li.appendChild(link);
+    searchResults.appendChild(li);
+  });
+}
+
+function openSearch() {
+  if (!searchModal || !searchInput) return;
+  searchModal.classList.add('open');
+  searchModal.setAttribute('aria-hidden', 'false');
+  renderSearchResults('');
+  searchInput.value = '';
+  requestAnimationFrame(() => searchInput.focus());
+}
+
+function closeSearch() {
+  if (!searchModal) return;
+  searchModal.classList.remove('open');
+  searchModal.setAttribute('aria-hidden', 'true');
+  searchActiveIndex = -1;
+}
+
+function moveSearchSelection(direction) {
+  const links = Array.from(searchResults.querySelectorAll('a'));
+  if (links.length === 0) return;
+  links.forEach((link) => link.classList.remove('active'));
+  searchActiveIndex = (searchActiveIndex + direction + links.length) % links.length;
+  links[searchActiveIndex].classList.add('active');
+  links[searchActiveIndex].scrollIntoView({ block: 'nearest' });
+}
+
+searchOpeners.forEach((btn) => btn.addEventListener('click', openSearch));
+searchClosers.forEach((el) => el.addEventListener('click', closeSearch));
+
+if (searchInput) {
+  searchInput.addEventListener('input', () => renderSearchResults(searchInput.value));
+  searchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      moveSearchSelection(1);
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      moveSearchSelection(-1);
+    } else if (event.key === 'Enter') {
+      const active = searchResults.querySelector('a.active') || searchResults.querySelector('a');
+      if (active) {
+        event.preventDefault();
+        window.location.href = active.getAttribute('href');
+      }
+    }
+  });
+}
+
+document.addEventListener('keydown', (event) => {
+  const key = event.key.toLowerCase();
+  if ((event.metaKey || event.ctrlKey) && key === 'k') {
+    event.preventDefault();
+    if (searchModal && searchModal.classList.contains('open')) {
+      closeSearch();
+    } else {
+      openSearch();
+    }
+  }
+  if (event.key === 'Escape' && searchModal && searchModal.classList.contains('open')) {
+    closeSearch();
+  }
+});

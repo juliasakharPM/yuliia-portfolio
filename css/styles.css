@@ -107,7 +107,7 @@ main > .section:first-child { padding-bottom: 16px; }
   border-radius: 30px;
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease,
-              color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+              color 0.2s ease, transform 0.2s ease-out, box-shadow 0.2s ease;
 }
 .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
@@ -663,4 +663,78 @@ main > .section:first-child { padding-bottom: 16px; }
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+/* --- Фаза 53: кнопка "как я думаю", котик, поиск --- */
+.btn-metric:hover {
+  background: var(--metric) !important;
+  color: #1A1D21 !important;
+}
+
+.footer-cat {
+  display: block;
+  margin: 20px auto 0;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.4s ease, transform 0.4s ease;
+  animation: catColorPulse 4s infinite alternate;
+}
+.footer-cat:hover { color: var(--metric); transform: scale(1.2) rotate(-5deg); }
+.cat-tail { transform-origin: 12px 15px; animation: catWag 1.5s infinite ease-in-out; }
+@keyframes catWag { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(15deg); } }
+@keyframes catColorPulse { 0% { color: var(--text-muted); } 100% { color: var(--accent); } }
+
+.search-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+.search-toggle:hover { color: var(--metric); border-color: var(--metric); }
+
+.search-modal { position: fixed; inset: 0; z-index: 1000; display: none; }
+.search-modal.open { display: block; }
+.search-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+.search-dialog {
+  position: relative;
+  max-width: 640px;
+  margin: 12vh auto 0;
+  padding: 16px;
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+#search-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+}
+#search-input:focus { border-color: var(--metric); }
+.search-results { list-style: none; margin: 12px 0 0; padding: 0; max-height: 50vh; overflow: auto; }
+.search-results a { display: block; padding: 12px 14px; border-radius: 8px; color: var(--text); }
+.search-results a:hover, .search-results a.active { background: var(--card); color: var(--metric); }
+.search-empty { padding: 12px 14px; color: var(--text-muted); font-size: 0.9rem; }
+.search-hint { margin: 12px 0 0; font-size: 0.75rem; color: var(--text-dim); text-align: center; }
+
+@media (max-width: 768px) {
+  .search-dialog { margin: 8vh 16px 0; }
 }
