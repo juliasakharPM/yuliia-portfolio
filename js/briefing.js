@@ -7,11 +7,8 @@
 
 const BF_STORAGE_KEY = 'sa_briefing_state';
 
-// TODO: заменить YOUR_FORM_ID на реальный endpoint Formspree.
-const BF_FORMSPREE_URL = 'https://formspree.io/f/mrppjjwr';
-
 // Состояние визарда. Шаги: 1 интро → 2 задача → 3 стадия →
-// 4 метрика → 5 боль → 6 кейс → 7 форма → 8 финал (success).
+// 4 метрика → 5 боль → 6 кейс → 7 финал (прямые контакты).
 const state = { step: 1, task: null, stage: null, metric: null, pain: null };
 
 // Названия метрик для шага 5 (подстановка в #metric-name).
@@ -73,7 +70,7 @@ function bfLoadState() {
   if (!saved || typeof saved !== 'object') return;
 
   const step = Number(saved.step);
-  if (Number.isInteger(step) && step >= 1 && step <= 8) state.step = step;
+  if (Number.isInteger(step) && step >= 1 && step <= 7) state.step = step;
 
   if (typeof saved.task === 'string' && CASES[saved.task]) state.task = saved.task;
   if (typeof saved.stage === 'string' && ['idea', 'mvp', 'growth', 'scale', 'internal'].indexOf(saved.stage) !== -1) state.stage = saved.stage;
@@ -108,14 +105,21 @@ function bfCaseHtml(task) {
   return html;
 }
 
-// Экран 8: финал после успешной отправки формы.
-function bfSuccessHtml() {
+// Экран 7: финал. Формы нет — только прямые контакты.
+function bfFinalHtml() {
   return '<div class="bf-screen">' +
-    '<div class="bf-msg" style="text-align: center; border-left: none; border-top: 3px solid var(--accent);">' +
-      '<h3 style="color: var(--accent); margin-bottom: 12px;">Принято!</h3>' +
-      'Свяжусь с вами в течение 24 часов.' +
+    '<div class="bf-msg" style="text-align: center; border-left: none; border-top: 3px solid var(--accent); padding: 40px 32px;">' +
+      '<h3 style="color: var(--accent); margin-bottom: 16px; font-family: var(--font-heading); font-size: 2rem;">Брифинг завершён</h3>' +
+      '<p style="margin-bottom: 16px; font-size: 1.1rem; color: var(--text);">Вы рассказали о задаче, я показала, как решаю такие проблемы.</p>' +
+      '<p style="margin-bottom: 32px; color: var(--text-muted); line-height: 1.6;">Чтобы я понимала, с какой задачей имею дело, напишите мне напрямую. Пришлите краткое описание проекта или PDF с вашими вводными — я изучу и вернусь с первичным видением.</p>' +
+      '<div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">' +
+        '<a href="https://t.me/JSArchitectRealite" target="_blank" rel="noopener noreferrer" class="btn btn--gold">Написать в Telegram</a>' +
+        '<a href="mailto:juliasakhar18@yandex.ru" class="btn btn--outline">Написать на Email</a>' +
+      '</div>' +
     '</div>' +
-    '<a class="btn btn--outline" href="resume.pdf" download style="margin-top: 20px;">Скачать резюме (PDF)</a>' +
+    '<div style="text-align: center; margin-top: 24px;">' +
+      '<button type="button" class="btn btn--outline" onclick="restartBriefing()">Начать заново</button>' +
+    '</div>' +
   '</div>';
 }
 
@@ -198,41 +202,13 @@ function bfBuildStep(step) {
   }
 
   if (step === 7) {
-    return '<div class="bf-screen">' +
-      '<div class="bf-msg">Брифинг завершен. Вы рассказали о задаче, я показала, как решаю такие проблемы. Оставьте контакты и краткое описание проекта. Если увижу, что моя экспертиза полезна, подготовлю первичное видение вашей задачи: гипотезы, точки роста и метрики, которые подняла бы в первую очередь. Давайте сразу перейдем к сути и обсудим потенциальный оффер.</div>' +
-      '<form id="bf-form" class="chat-form-card" onsubmit="submitForm(event)">' +
-        '<input type="text" name="company" placeholder="Название компании / продукта *" required>' +
-        '<input type="url" name="website" placeholder="Ссылка на сайт (опционально)">' +
-        '<textarea name="task" placeholder="Кратко о задаче *" rows="3" required></textarea>' +
-        '<input type="text" name="name" placeholder="Ваше имя *" required>' +
-        '<input type="text" name="contact" placeholder="Telegram или Email *" required>' +
-        '<input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">' +
-        '<input type="hidden" name="answer_task">' +
-        '<input type="hidden" name="answer_stage">' +
-        '<input type="hidden" name="answer_metric">' +
-        '<input type="hidden" name="answer_pain">' +
-        '<p class="bf-form-error" id="bf-form-error" hidden></p>' +
-        '<button type="submit" class="btn btn--primary" style="width: 100%; margin-top: 8px;">Получить видение проекта →</button>' +
-      '</form>' +
-      '<a class="btn btn--outline" href="resume.pdf" download style="margin-top: 16px;">Скачать резюме (PDF)</a>' +
-    '</div>';
+    return bfFinalHtml();
   }
 
-  // step 8: success
-  return bfSuccessHtml();
+  return bfFinalHtml();
 }
 
 // --- рендер шага ----------------------------------------------------------------
-
-// Ставит скрытые поля формы: ответы визарда уходят вместе с данными формы.
-function bfFillHiddenAnswers() {
-  const form = document.getElementById('bf-form');
-  if (!form) return;
-  form.elements.answer_task.value = state.task ? state.task : '';
-  form.elements.answer_stage.value = state.stage ? state.stage : '';
-  form.elements.answer_metric.value = state.metric ? state.metric : '';
-  form.elements.answer_pain.value = state.pain ? state.pain : '';
-}
 
 // Замена текущего экрана: fade-out → новая разметка fade-in.
 function bfSwapScreen(html) {
@@ -250,7 +226,6 @@ function bfSwapScreen(html) {
     content.innerHTML = html;
     const next = content.querySelector('.bf-screen');
     next.classList.add('fade-in');
-    bfFillHiddenAnswers();
   }, 250);
 }
 
@@ -264,7 +239,6 @@ function renderStep(step, animate) {
     const content = document.getElementById('bf-content');
     if (content) {
       content.innerHTML = bfBuildStep(state.step);
-      bfFillHiddenAnswers();
     }
     return;
   }
@@ -295,43 +269,17 @@ function selectPain(pain) {
   nextStep();
 }
 
-function submitForm(e) {
-  e.preventDefault();
-  const form = e.target;
-  const error = document.getElementById('bf-form-error');
-  const btn = form.querySelector('button[type="submit"]');
-  const original = btn.textContent;
-
-  // honeypot: заполнен скрытый элемент → тихий успех без запроса.
-  if (form.elements._gotcha.value) {
-    bfSwapScreen(bfSuccessHtml());
-    state.step = 8;
-    bfSaveState();
-    return;
-  }
-
-  error.hidden = true;
-  btn.disabled = true;
-  btn.textContent = 'Отправляю...';
-
-  fetch(BF_FORMSPREE_URL, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: { Accept: 'application/json' }
-  })
-    .then(function (response) {
-      if (!response.ok) throw new Error('bad status');
-      // успех: финальный экран
-      state.step = 8;
-      bfSaveState();
-      bfSwapScreen(bfSuccessHtml());
-    })
-    .catch(function () {
-      error.textContent = 'Что-то пошло не так, напишите мне напрямую в Telegram @JSArchitectRealite';
-      error.hidden = false;
-      btn.disabled = false;
-      btn.textContent = original;
-    });
+// Сброс прохождения: очищает localStorage и возвращает на первый экран.
+function restartBriefing() {
+  try {
+    localStorage.removeItem(BF_STORAGE_KEY);
+  } catch (e) { /* localStorage недоступен — просто перезапускаем */ }
+  state.step = 1;
+  state.task = null;
+  state.stage = null;
+  state.metric = null;
+  state.pain = null;
+  bfSwapScreen(bfBuildStep(1));
 }
 
 // --- старт -----------------------------------------------------------------------
@@ -343,11 +291,10 @@ function bfInit() {
   bfLoadState();
   bfSanitizeStep();
   if (state.step < 1) state.step = 1;
-  if (state.step > 8) state.step = 8;
+  if (state.step > 7) state.step = 7;
 
   // первый рендер без анимации
   content.innerHTML = bfBuildStep(state.step);
-  bfFillHiddenAnswers();
 }
 
 bfInit();
