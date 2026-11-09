@@ -427,6 +427,7 @@ const i18n = {
   ru: {
     nav_home: "Главная", nav_cases: "Кейсы", nav_resume: "Резюме", nav_contacts: "Контакты", nav_how_i_think: "Как я думаю",
     mindmap_title: "Как я думаю", mindmap_subtitle: "Мой процесс", back_to_home: "← Вернуться на главную",
+    mindmap_hint: "Выберите кейс, чтобы развернуть <span style=\"color: var(--accent); font-style: italic;\">нейронную сеть</span> моих компетенций",
     comp_strategy: "Product Strategy",
     comp_strategy_text: `
       <p><strong>1. Точка входа (Инсайт):</strong> Идея нейроквестов родилась на обучающем вебинаре. Увидев восторженные отзывы пользователей, я поняла, что этот формат можно масштабировать.</p>
@@ -474,6 +475,7 @@ const i18n = {
   en: {
     nav_home: "Home", nav_cases: "Cases", nav_resume: "Resume", nav_contacts: "Contacts", nav_how_i_think: "How I Think",
     mindmap_title: "How I Think", mindmap_subtitle: "My Process", back_to_home: "← Back to Home",
+    mindmap_hint: "Select a case to unfold the <span style=\"color: var(--accent); font-style: italic;\">neural network</span> of my competencies",
     comp_strategy: "Product Strategy",
     comp_strategy_text: `
       <p><strong>1. Entry point (Insight):</strong> The idea of neuro-quests was born at an educational webinar. Seeing enthusiastic user reviews, I realized the format could be scaled.</p>
