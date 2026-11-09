@@ -474,45 +474,39 @@ const i18n = {
     // --- DesignMatrix (dm_*) ---
     dm_strategy: "Product Strategy",
     dm_strategy_text: `
-      <p><strong>1. Рыночная возможность:</strong> Рынок 3D-проектирования интерьеров фрагментирован: профессиональные инструменты (3ds Max, SketchUp) дорогие и сложные, а онлайн-решения (Homestyler, Planner 5D) примитивные. Между ними — свободная ниша.</p>
-      <p><strong>2. Продуктовое видение:</strong> DesignMatrix — облачная платформа, объединяющая AI-генерацию, 3D-редактор на WebGL, встроенный маркетплейс мебели и открытый API. Связка «проектирование → покупка» закрывает разрыв, из-за которого терялась комиссия.</p>
-      <p><strong>3. Стратегия выхода:</strong> MVP за 4 месяца → полная версия за 8 месяцев → образовательный сегмент параллельно → международные рынки со второго года. Главный вызов — удержать фокус и не распылять бюджет между сегментами.</p>
+      <p><strong>1. Точка входа (Инсайт):</strong> Идея родилась из личного опыта: я попыталась сделать качественную 3D-модель интерьера и поняла, насколько это сложно и сколько требует обучения. В процессе общения с владелицей дизайн-агентства я подтвердила гипотезу: на рынке нет полноценных AI-решений, а порог входа крайне высок.</p>
+      <p><strong>2. Эволюция видения (Закрытый цикл):</strong> Я сразу поняла, что мало просто спроектировать дизайн — незакрытый цикл рушит ценность продукта. Пользователю нужно найти материалы для реализации. Поэтому я заложила в архитектуру встроенный маркетплейс, который упрощает и укорачивает путь от идеи до покупки.</p>
+      <p><strong>3. Социальная миссия (Образование):</strong> Вузы и колледжи — это не только монетизация и господдержка. Это социальная функция: дизайнеры выходят на рынок уже с портфолио. В долгосрочной стратегии (хоть это и не описано в ТЗ) я закладывала трансформацию платформы в площадку для фриланса и практики студентов.</p>
     `,
     dm_ai: "AI Architecture",
     dm_ai_text: `
-      <p><strong>1. AI как снижение порога входа:</strong> Генерация дизайнов по запросу позволяет частным пользователям визуализировать идеи без навыков 3D-моделирования, а дизайнерам — быстрее проходить рутину подбора материалов и визуализации.</p>
-      <p><strong>2. Технологическое ядро:</strong> 3D-редактор на WebGL с многоуровневым кэшированием и CDN, чтобы сложная сцена работала прямо в браузере. AI-слой встроен в процесс проектирования и генерации вариантов.</p>
-      <p><strong>3. Устойчивость:</strong> Зависимость от AI-провайдеров закрыта локальными моделями (Ollama) и fallback на шаблонные решения. Если внешний сервис недоступен, пользователь продолжает работу без потери сценария.</p>
+      <p><strong>1. Мультиагентный подход:</strong> Я спроектировала систему из нескольких AI-агентов, чтобы закрыть разные боли пользователя:<br>
+      • <em>Юридический агент:</em> тонко настроенный ассистент, который говорит, какие нужны документы для перепланировки и куда идти.<br>
+      • <em>AI-дизайнер:</em> помогает человеку без профильного образования красиво обставить квартиру.<br>
+      • <em>Умный рекомендатель:</em> подбирает товары на маркетплейсе строго под бюджет пользователя.</p>
+      <p><strong>2. Технические вызовы (WebGL):</strong> Самым сложным было спроектировать платформу, учитывая тяжесть 3D-графики. Заложены требования к рендерингу в браузере и оптимизации, чтобы приложение не «висело».</p>
+      <p><strong>3. Бюджетирование (12-50 млн ₽):</strong> Разброс бюджета обоснован не функционалом, а локацией команды. Стоимость разработки напрямую зависит от региона: удаленка или регионы (12-20 млн) против Москвы и СПб (до 50 млн), где ФОТ значительно выше.</p>
     `,
     dm_econ: "Экономика и воронка",
     dm_econ_text: `
-      <p><strong>1. Четыре источника дохода:</strong></p>
-      <ul>
-        <li><strong>Подписки:</strong> Базовая — 990 ₽/мес, Про — 2 990 ₽/мес, Корпоративная — от 9 900 ₽/мес.</li>
-        <li><strong>Маркетплейс:</strong> комиссия 10–15% с продаж мебели и материалов.</li>
-        <li><strong>Партнёрства:</strong> интеграции с поставщиками и реклама компаний-партнёров.</li>
-        <li><strong>Образование:</strong> лицензии для вузов 150–200K ₽/год и подписки для студентов 5–10K ₽/год.</li>
-      </ul>
-      <p><strong>2. Экономика:</strong> Бюджет разработки — 12–50 млн ₽ в зависимости от локации, окупаемость 18–24 месяца, ROI 20–25% годовых. Выручка растёт со 100–150K ₽ в первый месяц до 1–1.5 млн ₽ к двенадцатому, 10 000+ MAU через год.</p>
-      <p><strong>3. Выбор локации:</strong> Сравнила Москву, СПб, Казань и удалёнку. Оптимум — удалённая команда с ядром в регионах: 12–20 млн ₽ и окупаемость 18–24 месяца.</p>
+      <p><strong>1. Тарифная сетка (Доступность vs Ценность):</strong> Изначально тарифы разрабатывались с прицелом на максимальную доступность. Но при глубокой проработке я поняла, что продукт не для ежедневного использования (ремонт — процесс редкий). Поэтому цены стоит ставить выше при реализации концепта. Также важно не «забирать хлеб» у профессиональных дизайнеров, а позиционировать платформу как ассистента для DIY-сегмента.</p>
+      <p><strong>2. Комиссия маркетплейса (10–15%):</strong> Заложена как среднерыночное значение. Это баланс между ценностью, которую получает поставщик (прямой контакт с покупателем), и доходом экосистемы.</p>
+      <p><strong>3. Прогноз окупаемости (18–24 месяца):</strong> Расчет строился на прогнозируемой востребованности продукта и гипотезах о готовности аудитории платить установленные цены. Это модель, которая требует валидации на реальных пользователях.</p>
     `,
     dm_data: "Данные и UX",
     dm_data_text: `
-      <p><strong>1. Анализ рынка:</strong> Сегментировала конкурентов от профессиональных 3ds Max и SketchUp до простых онлайн-редакторов, чтобы найти свободную нишу между ценой, сложностью и функциональностью.</p>
-      <p><strong>2. Финансовая модель:</strong> Просчитала unit-экономику по сценариям: бюджет, окупаемость, ROI, выручку по месяцам и MAU. Это дало основу для решений о сроках MVP и приоритетах фич.</p>
-      <p><strong>3. Метрики продукта:</strong> Воронка от регистрации до первой сцены и покупки на маркетплейсе, удержание подписок, конверсия в платные тарифы и LTV образовательного сегмента. Данные — основа для A/B-тестов и приоритизации.</p>
+      <p><strong>1. CustDev:</strong> Провела серию интервью с владелицей дизайн-агентства для валидации главной боли и подтверждения отсутствия комплексных AI-решений на рынке.</p>
+      <p><strong>2. Ключевые метрики:</strong> В качестве главных показателей успеха (North Star Metric) я заложила MAU (активную аудиторию) и конверсию в покупку через встроенный маркетплейс.</p>
     `,
     dm_security: "Безопасность",
     dm_security_text: `
-      <p><strong>1. Правовые риски:</strong> Премодерация контента и лицензионные соглашения защищают платформу от нарушений авторских прав при загрузке моделей и текстур.</p>
-      <p><strong>2. Устойчивость инфраструктуры:</strong> WebGL-рендеринг усилен многоуровневым кэшированием и CDN, чтобы выдерживать нагрузку и не терять производительность на сложных сценах.</p>
-      <p><strong>3. Защита от зависимости:</strong> Fallback-сценарии на локальных моделях и шаблонах гарантируют, что сбой внешнего AI-провайдера не остановит работу пользователя.</p>
+      <p><strong>1. Масштабирование (Отказоустойчивость):</strong> Поскольку 3D-рендеринг в браузере требует много ресурсов, я заложила в архитектуру требования по балансировке нагрузки и отказоустойчивости.</p>
+      <p><strong>2. Кэширование и CDN:</strong> Для ускорения загрузки тяжелых 3D-моделей и текстур предусмотрено многоуровневое кэширование и использование CDN (сетей доставки контента). Это снижает нагрузку на серверы и ускоряет отклик для пользователя.</p>
     `,
     dm_process: "Процессы",
     dm_process_text: `
-      <p><strong>1. Поэтапная разработка:</strong> MVP за 4 месяца → полная версия за 8 месяцев → образовательный сегмент параллельно → международные рынки со второго года. Такой план снижает риск и позволяет проверять гипотезы на ранних этапах.</p>
-      <p><strong>2. Команда и локации:</strong> Сравнила стоимость разработки в Москве, СПб, Казани и на удалёнке. Вывод — удалённая команда с ядром в регионах даёт лучшее соотношение стоимость/качество.</p>
-      <p><strong>3. Процессы:</strong> Прозрачные этапы от анализа рынка и бизнес-логики до дизайна, 3D-пайплайна и запуска. Партнёрства с дизайн-студиями и образовательными площадками встроены в процесс привлечения.</p>
+      <p><strong>1. Открытый API и интеграции:</strong> Для масштабирования продукта я заложила открытый API. Это позволяет интегрировать платформу с CAD-системами (для профессиональных дизайнеров), CRM-системами (для мебельных компаний) и образовательными платформами.</p>
+      <p><strong>2. Работа с поставщиками:</strong> Для функционирования маркетплейса выстроена логика работы с поставщиками мебели и материалов, включая партнерские программы. Это создает дополнительную ценность для B2B-сегмента.</p>
     `
   },
   en: {
@@ -565,45 +559,39 @@ const i18n = {
     // --- DesignMatrix (dm_*) ---
     dm_strategy: "Product Strategy",
     dm_strategy_text: `
-      <p><strong>1. Market opportunity:</strong> The 3D interior design market is fragmented: professional tools (3ds Max, SketchUp) are expensive and complex, while online solutions (Homestyler, Planner 5D) are basic. Between them lies an open niche.</p>
-      <p><strong>2. Product vision:</strong> DesignMatrix is a cloud platform combining AI generation, a WebGL 3D editor, an integrated furniture marketplace and an open API. The "design → purchase" link closes the gap that caused lost commissions.</p>
-      <p><strong>3. Go-to-market strategy:</strong> MVP in 4 months → full version in 8 months → education segment in parallel → international markets from year two. The main challenge is staying focused and not spreading the budget across segments.</p>
+      <p><strong>1. Entry point (Insight):</strong> The idea came from personal experience: I tried to create a high-quality 3D interior model and realized how complex it is and how much learning it requires. Talking to the owner of a design agency confirmed the hypothesis: there are no comprehensive AI solutions on the market, and the entry barrier is extremely high.</p>
+      <p><strong>2. Evolution of the vision (Closed loop):</strong> I immediately understood that designing the interior alone is not enough — an unclosed loop destroys the product's value. The user still needs to source materials for implementation. That is why I built an integrated marketplace into the architecture, simplifying and shortening the path from idea to purchase.</p>
+      <p><strong>3. Social mission (Education):</strong> Universities and colleges are not only about monetization and government support. This is a social function: designers enter the market already with a portfolio. In the long-term strategy (even though it was not described in the brief), I envisioned transforming the platform into a space for student freelance work and practice.</p>
     `,
     dm_ai: "AI Architecture",
     dm_ai_text: `
-      <p><strong>1. AI as a lower entry barrier:</strong> On-demand design generation lets private users visualize ideas without 3D-modeling skills, while designers get through the routine of material selection and visualization faster.</p>
-      <p><strong>2. Technology core:</strong> A WebGL 3D editor with multi-level caching and a CDN so that complex scenes run directly in the browser. The AI layer is built into the design and variant-generation process.</p>
-      <p><strong>3. Resilience:</strong> Dependency on AI providers is covered by local models (Ollama) and fallback to template solutions. If an external service is unavailable, the user keeps working without losing the scenario.</p>
+      <p><strong>1. Multi-agent approach:</strong> I designed a system of several AI agents to address different user pains:<br>
+      • <em>Legal agent:</em> a finely tuned assistant that explains which documents are needed for re-planning and where to go.<br>
+      • <em>AI designer:</em> helps people without a professional background furnish their apartment beautifully.<br>
+      • <em>Smart recommender:</em> selects marketplace products strictly within the user's budget.</p>
+      <p><strong>2. Technical challenges (WebGL):</strong> The hardest part was designing the platform around the weight of 3D graphics. Requirements for in-browser rendering and optimization were built in so the application would not freeze.</p>
+      <p><strong>3. Budgeting (12–50M ₽):</strong> The budget range is driven not by functionality but by the team's location. Development cost depends directly on the region: remote work or the regions (12–20M) versus Moscow and St. Petersburg (up to 50M), where payroll is significantly higher.</p>
     `,
     dm_econ: "Economics & Funnel",
     dm_econ_text: `
-      <p><strong>1. Four revenue streams:</strong></p>
-      <ul>
-        <li><strong>Subscriptions:</strong> Basic — 990 ₽/mo, Pro — 2 990 ₽/mo, Corporate — from 9 900 ₽/mo.</li>
-        <li><strong>Marketplace:</strong> 10–15% commission on furniture and material sales.</li>
-        <li><strong>Partnerships:</strong> integrations with suppliers and advertising from partner companies.</li>
-        <li><strong>Education:</strong> university licenses at 150–200K ₽/year and student subscriptions at 5–10K ₽/year.</li>
-      </ul>
-      <p><strong>2. Economics:</strong> Development budget — 12–50M ₽ depending on location, payback in 18–24 months, ROI of 20–25% per year. Revenue grows from 100–150K ₽ in month one to 1–1.5M ₽ by month twelve, with 10,000+ MAU within a year.</p>
-      <p><strong>3. Location choice:</strong> I compared Moscow, St. Petersburg, Kazan and remote. The optimum is a remote team with a core in the regions: 12–20M ₽ and 18–24 months payback.</p>
+      <p><strong>1. Pricing tiers (Accessibility vs Value):</strong> The tariffs were initially designed for maximum accessibility. But deeper work showed that the product is not for daily use (renovation is a rare process). Therefore prices should be set higher when implementing the concept. It is also important not to "take bread" from professional designers, but to position the platform as an assistant for the DIY segment.</p>
+      <p><strong>2. Marketplace commission (10–15%):</strong> Set at the market average. It is a balance between the value the supplier receives (direct contact with the buyer) and the ecosystem's revenue.</p>
+      <p><strong>3. Payback forecast (18–24 months):</strong> The calculation was based on projected product demand and hypotheses about the audience's willingness to pay the set prices. This is a model that requires validation with real users.</p>
     `,
     dm_data: "Data & UX",
     dm_data_text: `
-      <p><strong>1. Market analysis:</strong> I segmented competitors from professional 3ds Max and SketchUp to simple online editors to find an open niche between price, complexity and functionality.</p>
-      <p><strong>2. Financial model:</strong> I calculated unit economics across scenarios: budget, payback, ROI, monthly revenue and MAU. This provided the basis for decisions on MVP timing and feature priorities.</p>
-      <p><strong>3. Product metrics:</strong> The funnel from sign-up to the first scene and marketplace purchase, subscription retention, conversion to paid tiers and the LTV of the education segment. Data is the basis for A/B tests and prioritization.</p>
+      <p><strong>1. CustDev:</strong> I conducted a series of interviews with the owner of a design agency to validate the main pain and confirm the absence of comprehensive AI solutions on the market.</p>
+      <p><strong>2. Key metrics:</strong> As the main success indicators (North Star Metric), I set MAU (active audience) and conversion to purchase through the integrated marketplace.</p>
     `,
     dm_security: "Security",
     dm_security_text: `
-      <p><strong>1. Legal risks:</strong> Content pre-moderation and licensing agreements protect the platform from copyright violations when models and textures are uploaded.</p>
-      <p><strong>2. Infrastructure resilience:</strong> WebGL rendering is reinforced with multi-level caching and a CDN to withstand load and preserve performance on complex scenes.</p>
-      <p><strong>3. Dependency protection:</strong> Fallback scenarios on local models and templates ensure that a failure of an external AI provider does not stop the user's work.</p>
+      <p><strong>1. Scaling (Fault tolerance):</strong> Since in-browser 3D rendering is resource-intensive, I built requirements for load balancing and fault tolerance into the architecture.</p>
+      <p><strong>2. Caching and CDN:</strong> To speed up loading of heavy 3D models and textures, multi-level caching and CDN (content delivery networks) are provided. This reduces server load and improves response time for the user.</p>
     `,
     dm_process: "Processes",
     dm_process_text: `
-      <p><strong>1. Phased development:</strong> MVP in 4 months → full version in 8 months → education segment in parallel → international markets from year two. This plan reduces risk and allows hypotheses to be tested early.</p>
-      <p><strong>2. Team and locations:</strong> I compared development costs in Moscow, St. Petersburg, Kazan and remote. The conclusion: a remote team with a core in the regions offers the best cost/quality ratio.</p>
-      <p><strong>3. Processes:</strong> Transparent stages from market analysis and business logic to design, the 3D pipeline and launch. Partnerships with design studios and educational platforms are built into the acquisition process.</p>
+      <p><strong>1. Open API and integrations:</strong> To scale the product, I built in an open API. This allows the platform to integrate with CAD systems (for professional designers), CRM systems (for furniture companies) and educational platforms.</p>
+      <p><strong>2. Working with suppliers:</strong> To operate the marketplace, the logic for working with furniture and material suppliers was designed, including partner programs. This creates additional value for the B2B segment.</p>
     `
   }
 };
