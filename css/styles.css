@@ -313,6 +313,7 @@ main > .section:first-child { padding-bottom: 16px; }
    Футер
    ============================================================ */
 .site-footer {
+  position: relative;
   background-color: var(--card);
   border-top: 1px solid var(--border);
   padding: 60px 20px 48px;
@@ -670,18 +671,39 @@ main > .section:first-child { padding-bottom: 16px; }
   color: #1A1D21 !important;
 }
 
-.footer-cat {
-  display: block;
-  margin: 20px auto 0;
+/* Фаза 55: котик сидит на линии border-top над аватаром, прижат к правому краю */
+.footer-cat-sitting {
+  position: absolute;
+  right: 10%;
+  top: -25px;
   color: var(--text-muted);
+  background-color: var(--bg);
+  padding: 0 10px;
   cursor: pointer;
   transition: color 0.4s ease, transform 0.4s ease;
-  animation: catColorPulse 4s infinite alternate;
+  animation: catColorPulse 4s infinite alternate, catFloat 3s ease-in-out infinite;
+  z-index: 10;
 }
-.footer-cat:hover { color: var(--metric); transform: scale(1.2) rotate(-5deg); }
-.cat-tail { transform-origin: 12px 15px; animation: catWag 1.5s infinite ease-in-out; }
-@keyframes catWag { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(15deg); } }
+
+.footer-cat-sitting:hover {
+  color: var(--metric);
+  transform: scale(1.2) translateY(-5px);
+  animation-play-state: paused;
+}
+
+.cat-tail { transform-origin: 16px 18px; animation: catWag 1.5s infinite ease-in-out; }
+@keyframes catWag { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(20deg); } }
 @keyframes catColorPulse { 0% { color: var(--text-muted); } 100% { color: var(--accent); } }
+@keyframes catFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+
+@media (max-width: 768px) {
+  .footer-cat-sitting {
+    right: 20px;
+    top: -20px;
+    width: 40px;
+    height: 40px;
+  }
+}
 
 .search-toggle {
   display: inline-flex;
