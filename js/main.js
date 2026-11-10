@@ -388,9 +388,9 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-// --- Котик в футере: сон → пробуждение → потягивание → сон (фаза 58) ---
+// --- Котик в футере: сон → пробуждение → потягивание → сон (фаза 71) ---
 document.addEventListener('DOMContentLoaded', () => {
-  const cat = document.querySelector('.cat-container');
+  const cat = document.getElementById('portfolio-cat') || document.querySelector('.cat-container');
   const footer = document.querySelector('footer');
 
   if (cat && footer) {
@@ -413,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
           sleepTimer = null;
         }, 4300);
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.25 });
 
     observer.observe(footer);
   }
